@@ -19,9 +19,9 @@ export const fetchGitHubRepos = async () => {
     }
     const repos = await response.json();
     
-    // Filter out forks and sort by stars and update date
+    // Filter: Include all non-forks, AND include forks if they are in the PINNED_REPOS list
     const filteredRepos = repos
-      .filter(repo => !repo.fork)
+      .filter(repo => !repo.fork || PINNED_REPOS.includes(repo.name))
       .sort((a, b) => {
         // Prioritize pinned repos
         const aIsPinned = PINNED_REPOS.includes(a.name);
@@ -49,4 +49,3 @@ export const fetchGitHubRepos = async () => {
 export const isPinnedRepo = (repoName) => {
   return PINNED_REPOS.includes(repoName);
 };
-

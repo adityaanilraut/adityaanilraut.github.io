@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# adityaanilraut.github.io
-=======
 # Aditya Raut - Developer Portfolio
 
 A modern, terminal-themed portfolio website built with React + Vite, featuring dynamic GitHub API integration to showcase projects.
@@ -200,5 +197,3 @@ This is a personal portfolio, but feel free to fork and customize for your own u
 ---
 
 **Built with ❤️ using React + Vite**
-
->>>>>>> 6930d3d (Initial commit for portfolio)
