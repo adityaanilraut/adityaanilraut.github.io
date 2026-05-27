@@ -11,25 +11,25 @@ const About = () => {
             <p className="about-para">
               I'm an AI systems engineer specializing in bridging the gap between cutting-edge 
               <span className="about-highlight"> machine learning models</span> and robust, production-grade 
-              <span className="about-highlight"> cloud architectures</span>. I love engineering systems that are 
+              <span className="about-highlight"> cloud architectures</span>. I build pipelines that are 
               fast, data-driven, and highly cost-optimized.
             </p>
             
             <p className="about-para">
               Currently pursuing my <span className="about-highlight">M.S. in Computer Science</span> at California State 
-              University, Chico, I focus my research and projects on retrieval-augmented generation (RAG) pipelines, 
-              context-aware model routing, and agentic workflows that automate developer tasks.
+              University, Chico, my core focus lies in retrieval-augmented generation (RAG) platforms, 
+              context-aware model routing logic, and agentic workflows that automate developer tasks.
             </p>
 
             <p className="about-para">
               During my time as a Systems Engineer at <span className="about-highlight">Tata Consultancy Services (TCS)</span>, 
-              I built and launched production pipelines that scraped data from multiple sources, built dense semantic embeddings, 
+              I built and launched production pipelines that scraped data from multiple sources, generated dense semantic embeddings, 
               and served low-latency retrieval APIs with exceptionally high precision.
             </p>
 
             <p className="about-para">
-              I'm always eager to collaborate on open-source AI projects, LLM orchestration harnesses, 
-              and robust backend architectures that make intelligent developer tooling accessible to everyone.
+              I'm always eager to collaborate on open-source AI libraries, LLM orchestration harnesses, 
+              and robust containerized backends that make intelligent tooling accessible to everyone.
             </p>
           </div>
 

@@ -113,7 +113,7 @@ const Projects = () => {
             </button>
           </div>
 
-          {/* Search and Filter row (only visible in All Repositories tab or if user wants to search) */}
+          {/* Search and Filter row */}
           {activeTab === 'all' && (
             <div className="search-filter-row">
               <div className="search-input-wrapper">
@@ -175,7 +175,7 @@ const Projects = () => {
                 <ul className="featured-card-bullets">
                   {project.highlights.map((bullet, idx) => (
                     <li key={idx} className="featured-card-bullet-item">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12"></polyline>
                       </svg>
                       {bullet}
@@ -205,7 +205,7 @@ const Projects = () => {
                     <div key={repo.id} className="card repo-card">
                       <div className="repo-card-header">
                         <h3 className="repo-card-title">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                           </svg>
                           {repo.name}
@@ -271,10 +271,6 @@ const Projects = () => {
               <div className="hub-load-more">
                 <button className="btn btn-secondary" onClick={handleLoadMore}>
                   Load More Repositories
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <polyline points="19 12 12 19 5 12"></polyline>
-                  </svg>
                 </button>
               </div>
             )}
