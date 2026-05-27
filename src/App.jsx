@@ -57,6 +57,7 @@ function App() {
               style={{ padding: '0.45rem 1rem', fontSize: '0.75rem' }}
               target="_blank" 
               rel="noopener noreferrer"
+              download="Aditya_Anil_Raut_resume.pdf"
               onClick={closeMobileMenu}
             >
               Resume

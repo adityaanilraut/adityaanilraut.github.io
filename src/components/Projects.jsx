@@ -11,46 +11,52 @@ const Projects = () => {
 
   const featuredProjects = [
     {
-      title: 'CoderAI CLI',
+      title: 'Multi-Agent Code Intelligence CLI (CoderAI)',
       subtitle: 'Agentic developer workstation in the terminal',
       link: 'https://github.com/adityaanilraut/homebrew-coderai',
       highlights: [
-        'Multi-LLM backend with OpenAI GPT-5 family + local LM Studio models and dynamic model switching',
-        'Implements Model Context Protocol tool-use agent for file I/O, terminal exec, git ops, semantic + grep code search, web docs lookup, and lightweight memory',
-        'Slash-command UX with pre/post execution hooks to streamline end-to-end coding workflows'
+        'Built an agentic multi-LLM CLI with dynamic model routing, hierarchical AI agents, tool calling via Model Context Protocol (MCP), and sandboxed code execution.',
+        'Enabled automated debugging, code generation, and web-assisted reasoning workflows using advanced tool-use logic.'
       ],
       tech: 'TypeScript · Node.js · MCP · LangChain · OpenAI'
     },
     {
-      title: 'Fine-Tuning LLMs',
-      subtitle: 'Personalized outputs on quantized Gemma-2B',
+      title: 'Fine-Tuning Large Language Models - Gemma 4 E2B',
+      subtitle: 'OOP-structured supervised instruction tuning',
       link: 'https://github.com/adityaanilraut/Finetuning-Google-Gemma2',
       highlights: [
-        'Optimized LoRA fine-tuning pipeline with 30% lower storage footprint',
-        'Quantized 16-bit base model to 4-bit for faster throughput without accuracy loss',
-        'Evaluation harness for regression tests across custom tasks'
+        'Fine-tuned Gemma 4 E2B via OOP-structured supervised instruction tuning pipeline with LoRA (90% fewer trainable parameters).',
+        'Implemented 4-bit quantization, reducing model storage footprint by 30% and enabling single consumer-GPU deployment.'
       ],
       tech: 'Python · PyTorch · LoRA · Hugging Face · BitsAndBytes'
     },
     {
-      title: 'Search Engine · RAG',
+      title: 'Semantic Search Engine - RAG Pipeline',
       subtitle: 'Retrieval augmented insight generator',
       link: 'https://github.com/adityaanilraut/AI-Model-Context-Routing',
       highlights: [
-        'AI-powered search that extracts key facts from engine results and returns concise, context-aware summaries',
-        'Cosine similarity ranking over semantic embeddings to boost precision of answer retrieval',
-        'Pluggable retriever layer that supports multi-source ingestion'
+        'Built a Retrieval-Augmented Generation (RAG) pipeline with web ingestion, Sentence Transformer embeddings, FAISS indexing, and cosine-similarity re-ranking.',
+        'Improved Top 3 retrieval precision over baseline vector retrieval, delivering low-latency semantic search answers.'
       ],
       tech: 'Python · FAISS · SentenceTransformers · FastAPI · LangChain'
     },
     {
+      title: 'TurboQuant - KV Cache Quantization',
+      subtitle: 'KV Cache Quantization for LLM Inference',
+      link: 'https://github.com/adityaanilraut',
+      highlights: [
+        'Benchmarked KV-cache quantization for transformer inference (FP16 → INT4), achieving 50% GPU memory reduction with <2% perplexity degradation.',
+        'Enabled longer context windows and more efficient LLM inference on constrained hardware environments.'
+      ],
+      tech: 'Python · PyTorch · Transformers · CUDA · Quantization'
+    },
+    {
       title: 'Chess Engine',
-      subtitle: 'Interactive engine with Minimax + alpha-beta pruning',
+      subtitle: 'Deterministic engine with Minimax + alpha-beta pruning',
       link: 'https://github.com/adityaanilraut/Chess-engine',
       highlights: [
-        'Deterministic search with iterative deepening and move ordering heuristics',
-        'Alpha-beta pruning reduces search space for faster decision making',
-        'Flask backend paired with interactive JavaScript UI for gameplay'
+        'Developed a chess engine using the Min-Max algorithm with Alpha-Beta pruning to efficiently predict optimal moves by reducing the search space.',
+        'Designed a RESTful Flask API for the backend and paired it with a clean, interactive JavaScript UI for gameplay.'
       ],
       tech: 'Python · Flask · JavaScript · Minimax'
     }

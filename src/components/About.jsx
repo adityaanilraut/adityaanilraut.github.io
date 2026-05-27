@@ -9,27 +9,23 @@ const About = () => {
         <div className="about-grid">
           <div className="about-text-block">
             <p className="about-para">
-              I'm an AI systems engineer specializing in bridging the gap between cutting-edge 
-              <span className="about-highlight"> machine learning models</span> and robust, production-grade 
-              <span className="about-highlight"> cloud architectures</span>. I build pipelines that are 
-              fast, data-driven, and highly cost-optimized.
+              I'm a <span className="about-highlight">Software Development Engineer (SDE)</span> specializing in bridging the gap between cutting-edge 
+              <span className="about-highlight"> distributed backend architectures</span> and robust 
+              <span className="about-highlight"> machine learning systems</span>. I build highly scalable, fast, and cost-optimized production pipelines.
             </p>
             
             <p className="about-para">
-              Currently pursuing my <span className="about-highlight">M.S. in Computer Science</span> at California State 
-              University, Chico, my core focus lies in retrieval-augmented generation (RAG) platforms, 
-              context-aware model routing logic, and agentic workflows that automate developer tasks.
+              I recently graduated with my <span className="about-highlight">M.S. in Computer Science</span> from California State 
+              University, Chico (completed May 2026). My core focus lies in building distributed systems, high-performance web services, retrieval-augmented generation (RAG) platforms, and intelligent multi-agent workflows.
             </p>
 
             <p className="about-para">
-              During my time as a Systems Engineer at <span className="about-highlight">Tata Consultancy Services (TCS)</span>, 
-              I built and launched production pipelines that scraped data from multiple sources, generated dense semantic embeddings, 
-              and served low-latency retrieval APIs with exceptionally high precision.
+              During my tenure as a Systems Engineer at <span className="about-highlight">Tata Consultancy Services (TCS)</span>, 
+              I architected and developed backend services for CIMS (Centralized Information Management System) processing data from 1,000+ financial institutions, migrated Talend ETLs to PySpark/PySQL pipelines in Databricks, and developed responsive web dashboards.
             </p>
 
             <p className="about-para">
-              I'm always eager to collaborate on open-source AI libraries, LLM orchestration harnesses, 
-              and robust containerized backends that make intelligent tooling accessible to everyone.
+              I am highly passionate about backend engineering, cloud systems design, and building intelligent software tooling that streamlines complex workflows.
             </p>
           </div>
 

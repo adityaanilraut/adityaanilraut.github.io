@@ -5,23 +5,22 @@ const Hero = () => {
     <section id="hero" className="hero">
       <div className="container hero-grid">
         <div className="hero-layout">
-          <p className="hero-subtitle">System Architect & Developer</p>
+          <p className="hero-subtitle">Software Development Engineer (SDE)</p>
           <h1 className="hero-title">
-            AI Systems Engineer.<br />
-            <span className="hero-title-gradient">Problem Solver.</span><br />
-            Tooling Builder.
+            Software Development Engineer.<br />
+            <span className="hero-title-gradient">Distributed Systems.</span><br />
+            AI & Backend Builder.
           </h1>
           
           <div className="hero-role-list">
-            <span className="hero-role-badge">RAG Pipelines</span>
-            <span className="hero-role-badge">Agentic AI</span>
-            <span className="hero-role-badge">Cloud-Native APIs</span>
-            <span className="hero-role-badge">Vector Embeddings</span>
+            <span className="hero-role-badge">Distributed Systems</span>
+            <span className="hero-role-badge">Backend APIs</span>
+            <span className="hero-role-badge">RAG & AI Agents</span>
+            <span className="hero-role-badge">Data Pipelines</span>
           </div>
 
           <p className="hero-description">
-            I design and build end-to-end production systems where Large Language Models, 
-            data engineering pipelines, and scalable cloud-native architectures intersect to solve complex technical challenges.
+            I design and build high-performance backend systems, distributed data pipelines, and intelligent agentic workflows that solve complex technical challenges at scale.
           </p>
 
           <div className="hero-meta">
@@ -37,7 +36,7 @@ const Hero = () => {
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
               </svg>
-              CSU Chico Graduate Candidate
+              M.S. in Computer Science Graduate, CSU Chico
             </span>
           </div>
 
@@ -63,15 +62,14 @@ const Hero = () => {
         <div className="hero-graphic-wrapper">
           <div className="hero-graphic">
             <div className="graphic-code">
-              <p><span className="graphic-keyword">def</span> <span className="graphic-value">route_query</span>(prompt: str) -&gt; str:</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;complexity = analyze(prompt)</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="graphic-keyword">if</span> complexity &gt; threshold:</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="graphic-keyword">return</span> route_to(<span className="graphic-value">"claude-3-5-sonnet"</span>)</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="graphic-keyword">return</span> route_to(<span className="graphic-value">"gemma-2b-local"</span>)</p>
+              <p><span className="graphic-keyword">def</span> <span className="graphic-value">optimize_systems</span>(sys: System) -&gt; None:</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="graphic-keyword">if</span> sys.latency &gt; threshold:</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.scale_horizontally()</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.optimize_db_queries()</p>
               <br />
-              <p><span className="graphic-keyword"># Systems operational - 100% Ok</span></p>
-              <p>precision = <span className="graphic-value">0.95</span></p>
-              <p>api_savings = <span className="graphic-value">0.20</span></p>
+              <p><span className="graphic-keyword"># SDE Systems - 100% Operational</span></p>
+              <p>completed_ms_cs = <span className="graphic-value">True</span></p>
+              <p>latency_reduction = <span className="graphic-value">"40%"</span></p>
             </div>
           </div>
         </div>

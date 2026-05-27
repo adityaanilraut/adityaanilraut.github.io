@@ -3,44 +3,48 @@ import React from 'react';
 const Experience = () => {
   const experiences = [
     {
-      title: 'M.S. Computer Science',
+      title: 'Master of Science in Computer Science',
       organization: 'California State University, Chico',
-      period: 'Aug 2024 - Present',
+      period: 'Aug 2024 – May 2026',
       type: 'education',
       description: [
-        'Graduate focus on Retrieval-Augmented Generation (RAG) pipelines, LLM fine-tuning, and scalable cloud systems',
-        'Leading academic projects that blend containerized fast APIs with advanced vector search mechanisms'
+        'Graduate focus on Advanced Algorithms, Distributed Systems, LLM Fine-tuning, Semantic Search, and Scalable Backend Systems',
+        'Academic achievements and project work focused on high-performance computational systems'
       ]
     },
     {
       title: 'Systems Engineer',
       organization: 'Tata Consultancy Services (TCS)',
-      period: 'Apr 2021 - Oct 2023',
+      period: 'Apr 2021 – Oct 2023',
       type: 'work',
       description: [
-        'Built and shipped a production scraping + semantic search pipeline using SentenceTransformers and FAISS vector index, achieving 95% precision/recall',
-        'Designed containerized AWS Lambda microservices orchestrated via Docker and Kubernetes with smart API response caching',
-        'Optimized data analytics stacks in SQL, delivered interactive Tableau dashboards, boosting client metrics by 8–12%'
+        'Architected and developed backend services for the Centralized Information Management System (CIMS), a large-scale data warehouse and data lake platform ingesting and processing data from 1,000+ regulated financial institutions for clients GE Aerospace and RBI.',
+        'Improved reporting workflows for economic surveillance and monetary policy analytics, reducing reporting and data retrieval latency by 40% through query optimization and scalable data processing pipelines.',
+        'Developed an enterprise semantic search and Retrieval-Augmented Generation (RAG) platform using OpenAI embeddings, vector search, advanced chunking strategies, and metadata filtering across 100K+ internal documents, improving retrieval relevance by 35% and reducing search latency by 40%.',
+        'Led migration of legacy Talend ETL workflows to scalable PySpark/PySQL pipelines in Databricks, implementing reusable ingestion, validation, CDC, and SCD1/SCD2 frameworks.',
+        'Built end-to-end analytics solutions using SQL, Tableau, and Power BI, enabling self-serve insights and improving business KPIs by 8–12%.',
+        'Developed responsive web dashboards and reporting portals using React.js and REST APIs, reducing manual reporting effort by 35% and improving data accessibility across cross-functional teams.',
+        'Scaled distributed ETL pipelines using Python, Talend, and Spark to process ~2M rows/day; optimized partitioning, caching, and I/O operations to reduce runtime by 20% and infrastructure costs by 16%.'
       ]
     },
     {
-      title: 'Winner - Wefunder AI Hackathon 2024',
+      title: 'Winner - Wefunder AI Hackathon (Context Router)',
       organization: 'Wefunder',
       period: '2024',
       type: 'achievement',
       description: [
-        'Developed Context Router, an intelligent LLM routing handler driven by token size, complexity, and latency profiles',
-        'Reduced overall API spending by 20% through prompt classifications, cost-aware switching, and local model integrations'
+        'Developed Context Router, an intelligent LLM-routing system that dynamically analyzes user queries and selects the most suitable LLM based on criteria like token length, task complexity, and required reasoning depth.',
+        'Won the Pond Challenge among 20+ teams; received recognition for designing a novel LLM orchestration strategy that reduced infrastructure waste and introduced a new paradigm for modular, cost-aware AI deployments.',
+        'Achieved up to 20% reduction in API costs by implementing prompt classification and cost-aware model switching.'
       ]
     },
     {
-      title: 'B.E. Computer Engineering',
+      title: 'Bachelor of Engineering in Computer Engineering',
       organization: 'University of Mumbai',
-      period: 'Feb 2021',
+      period: 'Aug 2017 – May 2020',
       type: 'education',
       description: [
-        'Graduated with deep foundations in data structures, algorithms, database systems, and networking',
-        'Designed capstone projects spanning full-stack web applications and machine learning classification models'
+        'Completed BE degree with rigorous training in Software Engineering, Data Structures, Algorithms, Distributed Databases, and Computer Networks.'
       ]
     }
   ];
