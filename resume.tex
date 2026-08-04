@@ -1,0 +1,117 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=0.35in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ---------------- Formatting ----------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+\setlist[itemize]{
+leftmargin=14pt,
+itemsep=0pt,
+parsep=0pt,
+topsep=1pt
+}
+
+\titlespacing*{\section}{0pt}{5pt}{2pt}
+\titleformat{\section}{\bfseries\large}{}{0pt}{}[\titlerule]
+
+\begin{document}
+
+\begin{center}
+{\LARGE\textbf{Aditya Raut}}\\[2pt]
+San Jose, California \textbar{}
+\href{mailto:adityaanilraut@gmail.com}{adityaanilraut@gmail.com} \textbar{}
++1 (669) 499-7554 \textbar{}
+\href{https://linkedin.com/in/adityaanilraut}{linkedin.com/in/adityaanilraut} \textbar{}
+\href{https://github.com/adityaanilraut}{github.com/adityaanilraut}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Summary}
+
+Software Engineer with \textbf{3+ years} of experience building production-grade \textbf{Python} applications, backend systems, and AI-powered software. Hands-on experience with \textbf{LLM applications, semantic search, RAG pipelines, vector databases, model optimization}, and scalable, distributed data processing on \textbf{AWS}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Technical Skills}
+
+\textbf{Languages:} Python, Java, Go, C/C++, SQL, JavaScript, TypeScript, Bash \\
+\textbf{Machine Learning:} PyTorch, Hugging Face Transformers, Deep Learning, Neural Networks, Transfer Learning, Fine-tuning, LoRA, PEFT, Quantization, CUDA \\
+\textbf{LLM Systems:} RAG, Sentence Transformers, Embeddings, FAISS, ChromaDB, LangChain, LangGraph, MCP, Vector Search, Multi-Agent Systems \\
+\textbf{Data Engineering:} Pandas, NumPy, PySpark, Databricks, Feature Engineering, SQL Optimization \\
+\textbf{Backend \& Cloud:} FastAPI, REST APIs, Docker, Kubernetes, AWS (Lambda, ECS, EKS, EC2, S3, SageMaker), Redis, PostgreSQL, MongoDB, Kafka, GitHub Actions, Terraform
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Professional Experience}
+
+\textbf{California State University, Chico} --- \textit{Research Assistant} \hfill Aug 2025 -- May 2026
+\begin{itemize}
+\item Conducted comparative performance research on \textbf{Rust vs.\ C++} for CPU and GPU workloads, benchmarking execution speed, memory usage, and parallel throughput across compute-intensive tasks (\href{https://github.com/adityaanilraut/Rust-vs-Cpp-for-CPU-and-GPU-Performance}{GitHub}).
+\item Designed and implemented GPU-accelerated benchmarks, analyzing low-level performance trade-offs and safety-versus-speed characteristics between the two languages.
+\end{itemize}
+
+\vspace{3pt}
+\textbf{Tata Consultancy Services (TCS)} --- \textit{System Engineer} \hfill Apr 2021 -- Oct 2023 \\
+Clients: GE Aerospace, Reserve Bank of India
+\begin{itemize}
+\item Developed production backend applications in \textbf{Python} and \textbf{Java}, building scalable REST APIs and distributed services for mission-critical financial systems serving \textbf{1,000+ regulated financial institutions}.
+\item Designed and deployed an enterprise \textbf{semantic search platform} using dense embeddings, vector retrieval, and metadata indexing across \textbf{100,000+ documents}, improving search relevance by \textbf{35\%} and reducing query latency by \textbf{40\%}.
+\item Built scalable \textbf{Python data pipelines} with \textbf{PySpark}, Databricks, and AWS; optimized SQL queries and schemas, cutting reporting latency by \textbf{30\%} while increasing pipeline throughput.
+\item Containerized services with Docker, deployed on AWS ECS and Kubernetes, and implemented CI/CD with automated monitoring via CloudWatch and Prometheus.
+\end{itemize}
+
+\vspace{3pt}
+\textbf{Launchpad Technology} --- \textit{Software Engineer} \hfill May 2020 -- Apr 2021
+\begin{itemize}
+\item Engineered backend microservices in \textbf{Python}, \textbf{Java}, and \textbf{Node.js}, exposing \textbf{10+ production REST APIs} for customer-facing applications.
+\item Deployed cloud-native applications on \textbf{AWS}, improving availability to \textbf{99.9\%} and reducing deployment issues by \textbf{25\%}; optimized Oracle SQL queries, procedures, and indexes, reducing response time by \textbf{25\%}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Technical Projects}
+
+\textbf{TurboQuant: KV-Cache Quantization for LLM Inference} (\href{https://github.com/adityaanilraut/TurboQuant-KV-Cache-Quantization}{GitHub}) \hfill \textit{PyTorch, CUDA, Quantization}
+\begin{itemize}
+\item Implemented FP16$\rightarrow$INT4 KV-cache quantization in PyTorch, reducing inference memory by \textbf{$\sim$4$\times$} and enabling longer context windows; benchmarked throughput, latency, GPU memory, and accuracy across quantization strategies.
+\end{itemize}
+
+\textbf{AI Context Router} (\href{https://github.com/adityaanilraut/AI-Model-Context-Routing}{GitHub}) \hfill \textit{FastAPI, Python, Docker, LLMs}
+\begin{itemize}
+\item Built an intelligent routing platform that dynamically selects LLM providers by reasoning complexity, latency, token usage, and cost; developed async FastAPI services with Dockerized deployment and health monitoring.
+\end{itemize}
+
+\textbf{CoderAI: Multi-Agent Code Intelligence CLI} (\href{https://github.com/adityaanilraut/CoderAI}{GitHub}) \hfill \textit{Python, MCP, Multi-Agent Systems}
+\begin{itemize}
+\item Built a multi-agent engineering assistant (planner, coder, reviewer agents) for repository analysis, code generation, debugging, and iterative repair, with sandboxed execution and tool calling via the Model Context Protocol (MCP).
+\end{itemize}
+
+\textbf{Semantic Search Engine} (\href{https://github.com/adityaanilraut/llm-embedding-pipeline}{GitHub}) \hfill \textit{Python, RAG, FAISS, Sentence Transformers}
+\begin{itemize}
+\item Developed an end-to-end RAG pipeline with document ingestion, embedding generation, metadata filtering, reranking, and FastAPI inference; built scalable FAISS indexes, improving Top-3 retrieval precision over baseline vector search.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Education}
+
+\textbf{California State University, Chico} --- M.S. Computer Science \hfill Aug 2024 -- May 2026 \\
+\textbf{University of Mumbai} --- B.E. Computer Engineering \hfill Aug 2017 -- May 2020
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Achievements}
+
+\textbf{Wefunder AI Hackathon Winner} --- Built an intelligent LLM routing platform selecting optimal models by complexity, latency, tokens, and cost. \\
+\textbf{TCS Awards} --- Best Team Award (2022), On the Spot Team Award (2022), On the Spot Award (2023)
+
+\end{document}

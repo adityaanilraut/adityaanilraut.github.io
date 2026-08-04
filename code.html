@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Engineer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "inverse-on-surface": "#33302d",
+                "outline": "#a08e7a",
+                "tertiary-fixed": "#c5e7ff",
+                "on-primary": "#472a00",
+                "background": "#161311",
+                "surface-container-highest": "#383432",
+                "on-secondary-container": "#432100",
+                "error": "#ffb4ab",
+                "on-error-container": "#ffdad6",
+                "primary-fixed": "#ffddb8",
+                "on-surface": "#e9e1dd",
+                "tertiary": "#8fd5ff",
+                "on-primary-fixed-variant": "#653e00",
+                "on-secondary": "#4d2600",
+                "primary-container": "#f59e0b",
+                "on-error": "#690005",
+                "on-secondary-fixed-variant": "#6e3900",
+                "surface-dim": "#161311",
+                "surface-tint": "#ffb95f",
+                "on-surface-variant": "#d8c3ad",
+                "inverse-primary": "#855300",
+                "surface": "#161311",
+                "tertiary-container": "#1abdff",
+                "on-primary-container": "#613b00",
+                "on-primary-fixed": "#2a1700",
+                "secondary-container": "#d97707",
+                "surface-container-high": "#2d2927",
+                "inverse-surface": "#e9e1dd",
+                "surface-bright": "#3c3836",
+                "on-tertiary-fixed": "#001e2d",
+                "secondary-fixed": "#ffdcc3",
+                "surface-container-low": "#1e1b19",
+                "surface-container": "#221f1d",
+                "surface-container-lowest": "#100e0c",
+                "primary-fixed-dim": "#ffb95f",
+                "secondary": "#ffb77d",
+                "on-tertiary": "#00344a",
+                "on-secondary-fixed": "#2f1500",
+                "secondary-fixed-dim": "#ffb77d",
+                "tertiary-fixed-dim": "#7fd0ff",
+                "on-tertiary-fixed-variant": "#004c6a",
+                "primary": "#ffc174",
+                "outline-variant": "#534434",
+                "on-background": "#e9e1dd",
+                "on-tertiary-container": "#004966",
+                "error-container": "#93000a",
+                "surface-variant": "#383432"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "base": "4px",
+                "xl": "48px",
+                "sm": "8px",
+                "lg": "24px",
+                "gutter": "24px",
+                "md": "16px",
+                "xs": "4px",
+                "margin-mobile": "16px",
+                "margin-desktop": "32px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "Geist"
+                ],
+                "headline-md": [
+                        "Hanken Grotesk"
+                ],
+                "display-lg": [
+                        "Hanken Grotesk"
+                ],
+                "headline-md-mobile": [
+                        "Hanken Grotesk"
+                ],
+                "body-md": [
+                        "Geist"
+                ],
+                "label-sm": [
+                        "JetBrains Mono"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #161311; /* background */
+            color: #e9e1dd; /* on-background */
+        }
+        .ghost-border {
+            border: 1px solid rgba(83, 68, 52, 0.2); /* outline-variant/20 */
+        }
+        .ghost-border:hover {
+            border-color: #ffb77d; /* secondary */
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar Shared Component -->
+<header class="bg-surface/80 backdrop-blur-md sticky top-0 w-full z-50 border-b border-outline-variant/30">
+<div class="flex justify-between items-center max-w-[1100px] mx-auto px-gutter h-16">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">
+                ENGINEER_PORTFOLIO
+            </div>
+<nav class="hidden md:flex gap-6 items-center">
+<!-- Assuming "Projects" might be contextually active for a landing page showcasing work, or none. Let's make none active initially to represent home, but we can't style home if it's not in the list. The JSON instructions say highlight closest match. If landing, it's just browsing. I will leave them inactive based on standard behavior, or highlight Projects as it's the main focus. -->
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary hover:bg-surface-container-low/50 transition-all duration-200 px-3 py-2 rounded-DEFAULT scale-95 active:scale-90 transition-transform" href="#">Projects</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary hover:bg-surface-container-low/50 transition-all duration-200 px-3 py-2 rounded-DEFAULT scale-95 active:scale-90 transition-transform" href="#">Experience</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary hover:bg-surface-container-low/50 transition-all duration-200 px-3 py-2 rounded-DEFAULT scale-95 active:scale-90 transition-transform" href="#">Skills</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-secondary hover:bg-surface-container-low/50 transition-all duration-200 px-3 py-2 rounded-DEFAULT scale-95 active:scale-90 transition-transform" href="#">Contact</a>
+</nav>
+<button class="bg-secondary text-on-secondary font-label-sm text-label-sm px-4 py-2 rounded-DEFAULT scale-95 active:scale-90 transition-transform hover:opacity-90 hidden md:block">
+                Resume
+            </button>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="max-w-[1100px] mx-auto px-margin-mobile md:px-gutter pt-24 pb-24 flex flex-col md:flex-row items-center gap-12">
+<div class="flex-1 space-y-6">
+<h1 class="font-headline-md-mobile md:font-display-lg text-headline-md-mobile md:text-display-lg text-on-surface">
+                    Software Engineer.<br/>
+<span class="text-secondary">Problem Solver.</span><br/>
+                    System Architect.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    I build scalable, high-performance backend systems and elegant frontend interfaces. Focused on delivering resilient code and intuitive user experiences that solve complex technical challenges.
+                </p>
+<div class="flex gap-4 pt-4">
+<a class="bg-secondary text-on-secondary font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-opacity" href="#projects">
+                        View All Projects
+                    </a>
+<a class="ghost-border text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-DEFAULT flex items-center gap-2 transition-colors" href="https://github.com" target="_blank">
+                        GitHub Profile
+                        <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+<div class="flex-1 w-full relative">
+<!-- Abstract Technical Graphic Placeholder -->
+<div class="w-full aspect-square md:aspect-[4/3] rounded-xl bg-surface-container-high border border-outline-variant/30 flex items-center justify-center relative overflow-hidden" data-alt="A modern, abstract digital visualization of data structures and network nodes, representing software engineering. The scene is set in a dark mode aesthetic with deep slate and obsidian backgrounds (#101415), illuminated by crisp, glowing terminal cyan lines and geometric shapes (#44e2cd). The lighting is precise and technical, creating a sense of high-performance computing and professional IDE environments.">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent"></div>
+<div class="font-label-sm text-label-sm text-secondary/50 p-6 absolute top-0 left-0">
+<pre>func optimizeSystems(sys System) error {
+    if sys.Latency &gt; threshold {
+        return sys.Scale()
+    }
+    return nil
+}
+</pre>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="max-w-[1100px] mx-auto px-margin-mobile md:px-gutter pb-24" id="projects">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Featured Work</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Recent solutions designed for scale and impact.</p>
+</div>
+<a class="hidden md:flex items-center gap-2 font-label-sm text-label-sm text-secondary hover:opacity-80 transition-opacity" href="#">
+                    Explore Archive
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project Card 1 -->
+<article class="bg-primary-container border border-outline-variant/30 rounded-xl p-6 flex flex-col ghost-border transition-colors group">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-2 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-1 rounded-DEFAULT border border-outline-variant/50 text-on-surface-variant">Go</span>
+<span class="font-label-sm text-label-sm px-2 py-1 rounded-DEFAULT border border-outline-variant/50 text-on-surface-variant">Kubernetes</span>
+</div>
+<a class="text-secondary opacity-0 group-hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">open_in_new</span>
+</a>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Distributed Event Streamer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                        Architected a high-throughput event streaming platform processing 10M+ events/day with sub-millisecond latency. Implemented custom sharding strategies.
+                    </p>
+<div class="w-full h-48 bg-surface-container-high rounded-lg border border-outline-variant/20 overflow-hidden relative" data-alt="A sleek, dark-themed dashboard UI screenshot showcasing real-time data streaming metrics. The interface features minimalist line graphs and glowing numerical indicators in terminal cyan (#44e2cd) against a deep black-blue background (#0f172a). The design reflects a professional IDE environment, focused on data density and high-performance technical analytics.">
+</div>
+</article>
+<!-- Project Card 2 -->
+<article class="bg-primary-container border border-outline-variant/30 rounded-xl p-6 flex flex-col ghost-border transition-colors group">
+<div class="flex justify-between items-start mb-6">
+<div class="flex gap-2 flex-wrap">
+<span class="font-label-sm text-label-sm px-2 py-1 rounded-DEFAULT border border-outline-variant/50 text-on-surface-variant">React</span>
+<span class="font-label-sm text-label-sm px-2 py-1 rounded-DEFAULT border border-outline-variant/50 text-on-surface-variant">AWS</span>
+</div>
+<a class="text-secondary opacity-0 group-hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">open_in_new</span>
+</a>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Serverless Analytics Portal</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                        Built a fully serverless, highly interactive React dashboard for visualizing massive datasets securely queried from Amazon Athena.
+                    </p>
+<div class="w-full h-48 bg-surface-container-high rounded-lg border border-outline-variant/20 overflow-hidden relative" data-alt="A dark-mode user interface mockup displaying an intricate analytics dashboard. The design utilizes a strict 12-column grid layout with clean, thin border lines. Subtle tonal layering creates depth without heavy shadows. The color palette relies on deep slates (#101415) and highlights of terminal cyan (#44e2cd) to emphasize key data points and interactive elements.">
+</div>
+</article>
+</div>
+<div class="mt-8 md:hidden text-center">
+<a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-secondary hover:opacity-80 transition-opacity border-b border-secondary pb-1" href="#">
+                    View All Projects
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer Shared Component -->
+<footer class="bg-surface border-t border-outline-variant/20 w-full py-12 mt-24">
+<div class="max-w-[1100px] mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">
+<!-- If headline-sm doesn't exist in config, falling back to headline-md for brand -->
+<span class="font-headline-md text-headline-md">ENGINEER_PORTFOLIO</span>
+</div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md opacity-80 hover:opacity-100 transition-colors" href="#">GitHub</a>
+<a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md opacity-80 hover:opacity-100 transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-on-surface font-body-md text-body-md opacity-80 hover:opacity-100 transition-colors" href="#">Twitter</a>
+</div>
+<div class="font-label-sm text-label-sm text-secondary">
+                © 2024 Built with Precision. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>
