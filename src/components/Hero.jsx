@@ -1,82 +1,146 @@
-import React from 'react';
-
-const Hero = () => {
+import React from "react";
+import { Arrow } from "../App";
+import { profile } from "../data/portfolio";
+function SystemIllustration() {
   return (
-    <section id="hero" className="hero">
-      <div className="container hero-grid">
-        <div className="hero-layout">
-          <p className="hero-subtitle">Software Development Engineer (SDE)</p>
-          <h1 className="hero-title">
-            Software Development Engineer.<br />
-            <span className="hero-title-gradient">Distributed Systems.</span><br />
-            AI & Backend Builder.
-          </h1>
-          
-          <div className="hero-role-list">
-            <span className="hero-role-badge">Distributed Systems</span>
-            <span className="hero-role-badge">Backend APIs</span>
-            <span className="hero-role-badge">RAG & AI Agents</span>
-            <span className="hero-role-badge">Data Pipelines</span>
+    <div
+      className="system-illustration"
+      aria-label="Architecture illustration: request flows through an API and orchestration layer to services, models, and data"
+    >
+      <div className="system-caption">
+        <span className="status-dot" /> SYSTEMS THINKING, END TO END{" "}
+        <span>ARCH / 01</span>
+      </div>
+      <div className="system-canvas">
+        <div className="orbit orbit-one" />
+        <div className="orbit orbit-two" />
+        <div className="system-request">
+          <span className="tiny-label">INPUT</span>
+          <span>
+            request<span className="dim">.json</span>
+          </span>
+          <span className="request-arrow">↓</span>
+        </div>
+        <div className="system-core">
+          <span className="core-icon">⌘</span>
+          <div>
+            <span className="tiny-label">THE ENGINEERING LAYER</span>
+            <strong>Design. Build. Verify.</strong>
           </div>
-
-          <p className="hero-description">
-            I design and build high-performance backend systems, distributed data pipelines, and intelligent agentic workflows that solve complex technical challenges at scale.
-          </p>
-
-          <div className="hero-meta">
-            <span className="hero-meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              San Jose, CA
-            </span>
-            <span className="hero-meta-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-              </svg>
-              M.S. in Computer Science Graduate, CSU Chico
-            </span>
+          <span className="core-light" />
+        </div>
+        <div className="system-branches">
+          <div>
+            <span>01</span>
+            <strong>Services</strong>
+            <small>APIs · Events</small>
           </div>
-
-          <div className="hero-actions">
-            <a href="#projects" className="btn btn-primary">
-              Explore Projects
-            </a>
-            <a 
-              href="https://github.com/adityaanilraut" 
-              className="btn btn-secondary"
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              GitHub Profile
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
+          <div>
+            <span>02</span>
+            <strong>Intelligence</strong>
+            <small>Agents · Models</small>
+          </div>
+          <div>
+            <span>03</span>
+            <strong>Data</strong>
+            <small>Retrieval · Pipelines</small>
           </div>
         </div>
-
-        <div className="hero-graphic-wrapper">
-          <div className="hero-graphic">
-            <div className="graphic-code">
-              <p><span className="graphic-keyword">def</span> <span className="graphic-value">optimize_systems</span>(sys: System) -&gt; None:</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;<span className="graphic-keyword">if</span> sys.latency &gt; threshold:</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.scale_horizontally()</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.optimize_db_queries()</p>
-              <br />
-              <p><span className="graphic-keyword"># SDE Systems - 100% Operational</span></p>
-              <p>completed_ms_cs = <span className="graphic-value">True</span></p>
-              <p>research_assistant = <span className="graphic-value">True</span></p>
-              <p>latency_reduction = <span className="graphic-value">"40%"</span></p>
-            </div>
+        <div className="system-output">
+          <span className="status-dot" /> reliability <span>+</span> performance{" "}
+          <span>+</span> clarity
+        </div>
+      </div>
+      <div className="system-footnote">
+        <span>
+          Thoughtful architecture.
+          <br />
+          Measurable trade-offs.
+        </span>
+        <span className="system-coordinates">
+          37.3382° N<br />
+          SAN JOSE, CA
+        </span>
+      </div>
+    </div>
+  );
+}
+export default function Hero() {
+  return (
+    <section id="hero" className="hero container">
+      <div className="hero-topline">
+        <p className="eyebrow">
+          <span className="status-dot" /> Open to engineering opportunities
+        </p>
+        <span className="hero-location">
+          San Jose, CA <span>↗</span>
+        </span>
+      </div>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <p className="hero-kicker">BACKEND ENGINEERING · AI SYSTEMS</p>
+          <h1>
+            Reliable systems.
+            <br />
+            <span>Useful AI.</span>
+          </h1>
+          <p className="hero-description">
+            I’m Aditya, a software engineer turning complex problems into
+            dependable software—from distributed backend services to agents that
+            build and verify code.
+          </p>
+          <div className="hero-actions">
+            <a className="button" href="#projects">
+              Explore my work <Arrow />
+            </a>
+            <a
+              className="text-link"
+              href={profile.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View résumé <Arrow diagonal />
+            </a>
           </div>
+          <div className="hero-proof">
+            <span className="proof-line" />
+            <p>
+              3+ years in software engineering
+              <br />
+              <span>Previously TCS · M.S. Computer Science, CSU Chico</span>
+            </p>
+          </div>
+        </div>
+        <SystemIllustration />
+      </div>
+      <div className="impact-strip">
+        <div className="impact-intro">
+          <span className="tiny-label">PRODUCTION EXPERIENCE</span>
+          <p>
+            Engineering with
+            <br />
+            <strong>real-world impact.</strong>
+          </p>
+        </div>
+        <div>
+          <strong>
+            2M<span>+</span>
+          </strong>
+          <p>monthly financial transactions</p>
+        </div>
+        <div>
+          <strong>
+            30<span>%</span>
+          </strong>
+          <p>reduction in API latency</p>
+        </div>
+        <div>
+          <strong>
+            50M<span>+</span>
+          </strong>
+          <p>records migrated without downtime</p>
         </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

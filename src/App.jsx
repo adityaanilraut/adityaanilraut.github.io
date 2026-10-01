@@ -1,116 +1,195 @@
-import React, { useState } from 'react';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
+import React, { useEffect, useState } from "react";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
+import { profile } from "./data/portfolio";
 
-function App() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-  };
-
+export function Arrow({ diagonal = false, className = "" }) {
   return (
-    <div className="app">
-      <header className="navbar">
-        <div className="container nav-container">
-          <a href="#hero" className="nav-brand" onClick={closeMobileMenu}>
-            ADITYA_PORTFOLIO
-          </a>
-
-          <button 
-            className="mobile-nav-toggle" 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
-          >
-            {mobileMenuOpen ? (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            ) : (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            )}
-          </button>
-
-          <div className={`nav-menu-wrapper ${mobileMenuOpen ? 'open' : ''}`}>
-            <nav>
-              <ul className="nav-menu">
-                <li><a href="#about" onClick={closeMobileMenu}>About</a></li>
-                <li><a href="#skills" onClick={closeMobileMenu}>Skills</a></li>
-                <li><a href="#experience" onClick={closeMobileMenu}>Experience</a></li>
-                <li><a href="#projects" onClick={closeMobileMenu}>Projects</a></li>
-                <li><a href="#contact" onClick={closeMobileMenu}>Contact</a></li>
-              </ul>
-            </nav>
-
-            <a 
-              href="/Aditya_Anil_Raut_resume.pdf" 
-              className="btn btn-primary" 
-              style={{ padding: '0.45rem 1rem', fontSize: '0.75rem' }}
-              target="_blank" 
-              rel="noopener noreferrer"
-              download="Aditya_Anil_Raut_resume.pdf"
-              onClick={closeMobileMenu}
-            >
-              Resume
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Contact />
-      </main>
-
-      <footer className="footer">
-        <div className="container footer-content">
-          <div className="nav-brand" style={{ fontSize: '1.1rem' }}>
-            ADITYA_PORTFOLIO
-          </div>
-          <div className="footer-socials">
-            <a 
-              href="https://github.com/adityaanilraut" 
-              className="footer-social-link" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/adityaanilraut" 
-              className="footer-social-link" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-            <a 
-              href="mailto:araut1@csuchico.edu" 
-              className="footer-social-link"
-            >
-              Email
-            </a>
-          </div>
-          <p className="footer-copyright">
-            © {new Date().getFullYear()} Built with Precision. All rights reserved.
-          </p>
-        </div>
-      </footer>
+    <svg
+      className={className}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {diagonal ? (
+        <path d="M6 18 18 6M6 6h12v12" />
+      ) : (
+        <path d="M4 12h16m-6-6 6 6-6 6" />
+      )}
+    </svg>
+  );
+}
+export function SectionHeading({ number, label, title, children }) {
+  return (
+    <div className="section-heading">
+      <div>
+        <p className="eyebrow">
+          <span>{number}</span> {label}
+        </p>
+        <h2>{title}</h2>
+      </div>
+      {children && <p className="section-intro">{children}</p>}
     </div>
   );
 }
-
+export function ExternalLink({ href, children, className = "", ...props }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      {...props}
+    >
+      {children}
+    </a>
+  );
+}
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-20% 0px -60% 0px" },
+    );
+    document
+      .querySelectorAll("main > section[id]")
+      .forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const close = (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, [menuOpen]);
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <header className="navbar">
+        <div className="container nav-inner">
+          <a
+            className="brand"
+            href="#hero"
+            aria-label="Aditya Raut home"
+            onClick={() => setMenuOpen(false)}
+          >
+            <span className="brand-monogram">
+              ar<span>.</span>
+            </span>
+            <span>
+              Aditya Raut<span className="brand-role">Software Engineer</span>
+            </span>
+          </a>
+          <button
+            className="menu-toggle"
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={menuOpen}
+            aria-controls="main-nav"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span>{menuOpen ? "Close" : "Menu"}</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              aria-hidden="true"
+            >
+              {menuOpen ? (
+                <path d="m6 6 12 12M6 18 18 6" />
+              ) : (
+                <path d="M4 8h16M4 16h16" />
+              )}
+            </svg>
+          </button>
+          <nav
+            id="main-nav"
+            aria-label="Main navigation"
+            className={menuOpen ? "nav-links is-open" : "nav-links"}
+          >
+            {[
+              ["projects", "Work"],
+              ["experience", "Experience"],
+              ["about", "About"],
+              ["contact", "Contact"],
+            ].map(([id, label]) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                aria-current={activeSection === id ? "location" : undefined}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </a>
+            ))}
+            <a
+              className="button button-small nav-resume"
+              href={profile.resume}
+              download="Aditya_Raut_Resume.pdf"
+              onClick={() => setMenuOpen(false)}
+            >
+              Résumé{" "}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4" />
+              </svg>
+            </a>
+          </nav>
+        </div>
+      </header>
+      <main id="main">
+        <Hero />
+        <Projects />
+        <Experience />
+        <About />
+        <Skills />
+        <Contact />
+      </main>
+      <footer className="footer container">
+        <a className="footer-name" href="#hero">
+          Aditya Raut<span className="accent">.</span>
+        </a>
+        <p>Built with care. Backed by code.</p>
+        <div>
+          <ExternalLink href={profile.github}>
+            GitHub <Arrow diagonal />
+          </ExternalLink>
+          <ExternalLink href={profile.linkedin}>
+            LinkedIn <Arrow diagonal />
+          </ExternalLink>
+          <span>© {new Date().getFullYear()}</span>
+        </div>
+      </footer>
+    </>
+  );
+}
 export default App;

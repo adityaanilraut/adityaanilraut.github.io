@@ -1,199 +1,46 @@
-# Aditya Raut - Developer Portfolio
+# Aditya Raut — Software Engineer
 
-A modern, terminal-themed portfolio website built with React + Vite, featuring dynamic GitHub API integration to showcase projects.
+Portfolio: **https://adityaanilraut.github.io/**
 
-## 🚀 Features
+A React + Vite portfolio focused on backend engineering, AI systems, and inspectable project evidence. Professional experience comes from the supplied September 2026 résumé; project descriptions were checked against current public repository documentation.
 
-- **Terminal/Developer Theme**: Authentic terminal aesthetics with monospace fonts and retro colors
-- **Dynamic GitHub Integration**: Automatically fetches and displays repositories from GitHub API
-- **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
-- **Smooth Animations**: Typewriter effects and hover animations
-- **Single Page Application**: Smooth scroll navigation between sections
+## Develop
 
-## 🛠️ Tech Stack
+Use Node.js 22.12+.
 
-- **React 18** - Modern UI library
-- **Vite** - Lightning-fast build tool
-- **GitHub API** - Dynamic repository data
-- **CSS3** - Custom terminal styling
-- **GitHub Pages** - Free hosting
-
-## 📋 Sections
-
-1. **Hero** - Terminal-style introduction with ASCII art
-2. **About** - Professional background and current focus
-3. **Skills** - Technical expertise organized by category
-4. **Experience** - Work history, education, and achievements
-5. **Projects** - Dynamic showcase of GitHub repositories
-6. **Contact** - Multiple ways to connect
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
+```sh
+npm ci
 npm run dev
-
-# Build for production
+npm run sync:repos
 npm run build
-
-# Preview production build
 npm run preview
 ```
 
-The dev server will start at `http://localhost:5173`
+The build produces `dist/`. It renders the entire portfolio to HTML before publishing, then hydrates React for filters, repository search, and the mobile menu. Text, résumé links, project sources, and native engineering-note disclosures are available before JavaScript loads. System illustrations are lightweight CSS graphics.
 
-## 📦 Deployment to GitHub Pages
+## Update content
 
-### Step 1: Initialize Git Repository
+- `src/data/portfolio.js`: identity, contact, selected projects, experience, skills.
+- `public/Aditya_Anil_Raut_resume.pdf`: the current supplied résumé, used by every résumé link.
+- `src/data/repos.json`: saved public repository snapshot. Refresh with `npm run sync:repos`.
+- `src/components/`: page sections and interactions.
+- `src/App.css`: responsive design, focus states, reduced-motion and print styles.
+- `index.html`: search metadata, social card, canonical URL, and ProfilePage structured data.
 
-```bash
-# Initialize git (if not already done)
-git init
+The browser requests fresh public repositories from GitHub with an eight-second deadline. A saved snapshot appears immediately and remains available during rate limits or network errors. No client API keys or personal access tokens are used. Only non-fork, non-archived public repositories are displayed.
 
-# Add all files
-git add .
+## Publishing
 
-# Commit
-git commit -m "Initial commit: Portfolio website"
-```
+`.github/workflows/deploy.yml` builds and publishes through the official GitHub Pages actions on pushes to `main`, manual runs, and a weekly repository refresh. Set Settings → Pages → Source to **GitHub Actions**. The existing `gh-pages` branch is preserved as deployment history.
 
-### Step 2: Create GitHub Repository
+The weekly run refreshes the build's repository snapshot; it does not overwrite editorial project write-ups or commit generated snapshots into `main`. Review selected projects periodically for new evidence and outcomes. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
-1. Go to [GitHub](https://github.com/new)
-2. Create a new repository named `gitpages`
-3. **Do NOT** initialize with README, .gitignore, or license
+## Content integrity
 
-### Step 3: Link and Push
+Professional metrics are résumé-reported. CoderAI's precision and review latency are labeled as project-reported results for the linked 50-PR evaluation configuration. CodeAgentBench's 10-task sample mixes five SWE-bench Verified and five local tasks. TurboQuant reports analytical cache storage and simulation-path overhead, not measured production compressed-cache savings. No new employment, awards, global rankings, or unverified production claims were added.
 
-```bash
-# Add remote repository
-git remote add origin https://github.com/adityaanilraut/gitpages.git
+The root PDF aliases match the current résumé for compatibility. `resume.tex`, `code.html`, and ASCII art are legacy source/reference artifacts and do not drive the current site. The supplied PDF is the authoritative download.
 
-# Push to main branch
-git branch -M main
-git push -u origin main
-```
+## Validation
 
-### Step 4: Deploy to GitHub Pages
-
-```bash
-# Deploy to GitHub Pages
-npm run deploy
-```
-
-This will:
-1. Build your application
-2. Create/update the `gh-pages` branch
-3. Deploy to GitHub Pages
-
-### Step 5: Configure GitHub Pages
-
-1. Go to your repository settings: `https://github.com/adityaanilraut/gitpages/settings/pages`
-2. Under "Source", select the `gh-pages` branch
-3. Click "Save"
-
-Your site will be live at: `https://adityaanilraut.github.io/gitpages/`
-
-## 🔧 Configuration
-
-### Change Base URL
-
-If you want to use a custom domain or different repository name, update `vite.config.js`:
-
-```javascript
-export default defineConfig({
-  plugins: [react()],
-  base: '/your-repo-name/', // Change this
-})
-```
-
-### Update GitHub Username
-
-To fetch repositories for a different GitHub user, edit `src/utils/githubApi.js`:
-
-```javascript
-const GITHUB_USERNAME = 'your-username'; // Change this
-```
-
-### Customize Pinned Projects
-
-Edit the `PINNED_REPOS` array in `src/utils/githubApi.js`:
-
-```javascript
-const PINNED_REPOS = [
-  'repo-name-1',
-  'repo-name-2',
-  // Add your repos here
-];
-```
-
-## 📝 Customization
-
-### Colors
-
-Terminal theme colors can be customized in `src/App.css`:
-
-```css
-:root {
-  --bg-primary: #0a0e14;
-  --terminal-green: #00ff00;
-  --terminal-cyan: #00ffff;
-  /* Add more custom colors */
-}
-```
-
-### Content
-
-- **Personal Info**: Edit individual component files in `src/components/`
-- **Skills**: Update the `skillCategories` array in `src/components/Skills.jsx`
-- **Experience**: Modify the `experiences` array in `src/components/Experience.jsx`
-- **Contact**: Update the `contacts` array in `src/components/Contact.jsx`
-
-## 🔄 Updating Content
-
-After making changes:
-
-```bash
-# Test locally
-npm run dev
-
-# Deploy updates
-npm run deploy
-```
-
-Changes will be live in 1-2 minutes!
-
-## 🌐 Browser Support
-
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers
-
-## 📄 License
-
-MIT License - Feel free to use this template for your own portfolio!
-
-## 🤝 Contributing
-
-This is a personal portfolio, but feel free to fork and customize for your own use!
-
-## 📧 Contact
-
-- **Email**: araut1@csuchico.edu
-- **GitHub**: [@adityaanilraut](https://github.com/adityaanilraut)
-- **LinkedIn**: [Aditya Raut](https://www.linkedin.com/in/aditya-raut)
-
----
-
-**Built with ❤️ using React + Vite**
+Run `npm run build` and `npm audit`. Verify mobile navigation, keyboard focus, project category filters, engineering notes, repository search/language filters/pagination, no-results recovery, and résumé downloads in a browser. Confirm the built HTML contains meaningful content without JavaScript. See [DESIGN.md](DESIGN.md) for design and accessibility decisions.

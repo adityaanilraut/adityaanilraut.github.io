@@ -1,51 +1,22 @@
-const GITHUB_USERNAME = 'adityaanilraut';
-const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
-
-// Pinned repositories to highlight
-const PINNED_REPOS = [
-  'homebrew-coderai',
-  'AI-Model-Context-Routing',
-  'HavenAI-Live-VideoCall-with-AI-Agent',
-  'ChatBot-Chain-of-Thought',
-  'Finetuning-Google-Gemma2',
-  'Chess-engine'
-];
-
-export const fetchGitHubRepos = async () => {
-  try {
-    const response = await fetch(GITHUB_API_URL + '?per_page=100&sort=updated');
-    if (!response.ok) {
-      throw new Error('Failed to fetch repositories');
-    }
-    const repos = await response.json();
-    
-    // Filter: Include all non-forks, AND include forks if they are in the PINNED_REPOS list
-    const filteredRepos = repos
-      .filter(repo => !repo.fork || PINNED_REPOS.includes(repo.name))
-      .sort((a, b) => {
-        // Prioritize pinned repos
-        const aIsPinned = PINNED_REPOS.includes(a.name);
-        const bIsPinned = PINNED_REPOS.includes(b.name);
-        
-        if (aIsPinned && !bIsPinned) return -1;
-        if (!aIsPinned && bIsPinned) return 1;
-        
-        // Then sort by stars
-        if (b.stargazers_count !== a.stargazers_count) {
-          return b.stargazers_count - a.stargazers_count;
-        }
-        
-        // Finally by update date
-        return new Date(b.updated_at) - new Date(a.updated_at);
-      });
-    
-    return filteredRepos;
-  } catch (error) {
-    console.error('Error fetching GitHub repos:', error);
-    return [];
+import snapshot from "../data/repos.json";
+export const repoSnapshot = snapshot;
+export const normalizeRepos = (repos) =>
+  repos
+    .filter((repo) => !repo.fork && !repo.archived)
+    .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+export async function fetchGitHubRepos(signal) {
+  const repos = [];
+  for (let page = 1; ; page++) {
+    const response = await fetch(
+      `https://api.github.com/users/adityaanilraut/repos?per_page=100&sort=pushed&page=${page}`,
+      { signal, headers: { Accept: "application/vnd.github+json" } },
+    );
+    if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
+    const batch = await response.json();
+    if (!Array.isArray(batch)) throw new Error("Invalid GitHub response");
+    repos.push(...batch);
+    if (batch.length < 100) break;
   }
-};
-
-export const isPinnedRepo = (repoName) => {
-  return PINNED_REPOS.includes(repoName);
-};
+  if (!repos.length) throw new Error("Empty repository response");
+  return normalizeRepos(repos);
+}

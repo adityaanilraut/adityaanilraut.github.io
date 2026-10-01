@@ -1,0 +1,338 @@
+{
+  "syncedAt": "2026-10-01T05:08:47.241Z",
+  "repos": [
+    {
+      "name": "CoderAI",
+      "description": "Coding Agent CLI Tool",
+      "html_url": "https://github.com/adityaanilraut/CoderAI",
+      "language": "Python",
+      "pushed_at": "2026-10-01T04:57:25Z",
+      "stargazers_count": 1,
+      "topics": []
+    },
+    {
+      "name": "llm-post-training",
+      "description": "Hands-on notebooks exploring LLM post-training techniques including SFT, DPO, PPO, GRPO, RLHF, preference optimization, reward modeling, distillation, quantization, and evaluation.",
+      "html_url": "https://github.com/adityaanilraut/llm-post-training",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2026-09-19T10:38:29Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "code-agent-bench",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/code-agent-bench",
+      "language": "Python",
+      "pushed_at": "2026-09-16T05:54:25Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "voxlibri",
+      "description": "Transform PDF documents into chaptered audiobooks using offline neural TTS & OCR with low-RAM streaming pipeline",
+      "html_url": "https://github.com/adityaanilraut/voxlibri",
+      "language": "Python",
+      "pushed_at": "2026-09-16T05:42:41Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "Xcode-Apps",
+      "description": "A curated monorepo of native macOS and iOS applications built with Swift and SwiftUI",
+      "html_url": "https://github.com/adityaanilraut/Xcode-Apps",
+      "language": "Swift",
+      "pushed_at": "2026-09-16T05:42:03Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "adityaanilraut",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/adityaanilraut",
+      "language": null,
+      "pushed_at": "2026-08-24T07:45:52Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "roomieQueue",
+      "description": "Mobile-first roommate duties and laundry coordination app",
+      "html_url": "https://github.com/adityaanilraut/roomieQueue",
+      "language": "TypeScript",
+      "pushed_at": "2026-08-10T21:53:03Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "adityaanilraut.github.io",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/adityaanilraut.github.io",
+      "language": "JavaScript",
+      "pushed_at": "2026-08-04T04:17:45Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "turing-chat",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/turing-chat",
+      "language": "JavaScript",
+      "pushed_at": "2026-07-24T22:25:38Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "homebrew-coderai",
+      "description": "Homebrew tap for CoderAI - Intelligent Coding Agent CLI",
+      "html_url": "https://github.com/adityaanilraut/homebrew-coderai",
+      "language": "Ruby",
+      "pushed_at": "2026-07-16T00:27:48Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "quoridor-alpha-zero-rl",
+      "description": "AlphaZero-style reinforcement learning agent for the board game Quoridor — self-play, MCTS, neural network, and Pygame UI.",
+      "html_url": "https://github.com/adityaanilraut/quoridor-alpha-zero-rl",
+      "language": "Python",
+      "pushed_at": "2026-06-27T06:24:21Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "llm-embedding-pipeline",
+      "description": "LLM Embedding & Vector Data Infrastructure Pipeline",
+      "html_url": "https://github.com/adityaanilraut/llm-embedding-pipeline",
+      "language": "Python",
+      "pushed_at": "2026-05-17T15:44:57Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "Rust-vs-Cpp-for-CPU-and-GPU-Performance",
+      "description": "Rust vs. C++ for CPU and GPU Performance: A Controlled Empirical Benchmark Study",
+      "html_url": "https://github.com/adityaanilraut/Rust-vs-Cpp-for-CPU-and-GPU-Performance",
+      "language": "TeX",
+      "pushed_at": "2026-05-11T00:36:02Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "MATH-CSCI485_Aditya_Raut",
+      "description": "Assignments",
+      "html_url": "https://github.com/adityaanilraut/MATH-CSCI485_Aditya_Raut",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2026-04-17T22:54:50Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "android-studio-monorepo",
+      "description": "Android Studio projects: my-application, gemma-litert-compose, mlkit samples",
+      "html_url": "https://github.com/adityaanilraut/android-studio-monorepo",
+      "language": "Kotlin",
+      "pushed_at": "2026-04-12T06:19:03Z",
+      "stargazers_count": 1,
+      "topics": []
+    },
+    {
+      "name": "RetrievalAugmentedGeneration-RAG",
+      "description": "Project about using of Retrieval-Augmented Generation (RAG)",
+      "html_url": "https://github.com/adityaanilraut/RetrievalAugmentedGeneration-RAG",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2026-04-08T07:20:10Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "TurboQuant-KV-Cache-Quantization",
+      "description": "Benchmark suite for LLM KV-cache quantization, evaluating reconstruction quality, attention fidelity, logit drift, decode throughput, and analytical memory savings.",
+      "html_url": "https://github.com/adityaanilraut/TurboQuant-KV-Cache-Quantization",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2026-04-04T08:05:12Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "satellite-farm-classification",
+      "description": "Leakage-resistant ML pipeline for classifying farm parcels (Alfalfa/Almond/Uncultivated) from monthly satellite imagery. HistGBM achieves 0.888 macro F1 on handcrafted phenological features with location-grouped CV.",
+      "html_url": "https://github.com/adityaanilraut/satellite-farm-classification",
+      "language": "Python",
+      "pushed_at": "2026-03-17T06:26:21Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "Resume-builder",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/Resume-builder",
+      "language": "JavaScript",
+      "pushed_at": "2025-12-14T06:54:01Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "University",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/University",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2025-12-14T06:40:54Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "Rust-vs-C--Benchmark",
+      "description": "Benchmark",
+      "html_url": "https://github.com/adityaanilraut/Rust-vs-C--Benchmark",
+      "language": "C++",
+      "pushed_at": "2025-10-23T23:28:12Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "Code-Assistant",
+      "description": "terminal-first AI coding agent/assistant",
+      "html_url": "https://github.com/adityaanilraut/Code-Assistant",
+      "language": null,
+      "pushed_at": "2025-08-26T06:12:49Z",
+      "stargazers_count": 0,
+      "topics": ["agentic-ai", "llm"]
+    },
+    {
+      "name": "MCP-Servers",
+      "description": "Lightweight Model Context Protocol servers for real-world actions: File Manager, Python Runner, URL Scraper, and Shell Exec.",
+      "html_url": "https://github.com/adityaanilraut/MCP-Servers",
+      "language": "Python",
+      "pushed_at": "2025-08-21T22:06:31Z",
+      "stargazers_count": 0,
+      "topics": ["llm-tools", "machine-learning", "mcp-server"]
+    },
+    {
+      "name": "AI-Model-Context-Routing",
+      "description": "An intelligent AI model routing system that automatically selects the best model (Claude 3.5 Sonnet, GPT-4o, Gemini 2.0 Flash) for your queries using advanced context analysis and structured routing logic.",
+      "html_url": "https://github.com/adityaanilraut/AI-Model-Context-Routing",
+      "language": "TypeScript",
+      "pushed_at": "2025-07-09T22:03:50Z",
+      "stargazers_count": 0,
+      "topics": ["ai-workflow", "llm-agents", "machone-learning"]
+    },
+    {
+      "name": "HavenAI-Live-VideoCall-with-AI-Agent",
+      "description": "MindHaven.ai is your daily AI-powered companion for mental wellness. Through simple check-ins, it tracks mood, nutrition, exercise, and community, offering personalized support to build lasting balance, resilience, and emotional strength.",
+      "html_url": "https://github.com/adityaanilraut/HavenAI-Live-VideoCall-with-AI-Agent",
+      "language": "JavaScript",
+      "pushed_at": "2025-05-08T04:20:05Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "CSCI611-deepfake",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/CSCI611-deepfake",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2025-05-02T23:34:15Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "projects-and-experiments",
+      "description": "experiments",
+      "html_url": "https://github.com/adityaanilraut/projects-and-experiments",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2025-04-21T20:43:10Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "Finetuning-Google-Gemma2",
+      "description": "Finetuning-Google-Gemma2",
+      "html_url": "https://github.com/adityaanilraut/Finetuning-Google-Gemma2",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2025-04-09T01:35:23Z",
+      "stargazers_count": 1,
+      "topics": []
+    },
+    {
+      "name": "Chrome-Extension",
+      "description": "Repository for Chrome extensions developed by Aditya Anil Raut.",
+      "html_url": "https://github.com/adityaanilraut/Chrome-Extension",
+      "language": "JavaScript",
+      "pushed_at": "2025-04-01T07:15:39Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "CSCI611_Spring25_Aditya_Raut",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/CSCI611_Spring25_Aditya_Raut",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2025-03-27T07:12:23Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "ChatBot-Chain-of-Thought",
+      "description": "A sleek, interactive chatbot interface that supports chain-of-thought reasoning and response comparison. Built with Python Flask and modern web technologies.",
+      "html_url": "https://github.com/adityaanilraut/ChatBot-Chain-of-Thought",
+      "language": "HTML",
+      "pushed_at": "2025-01-19T08:57:36Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "Chess-engine",
+      "description": "Chess engine using Minimax algorithm with Alpha-Beta pruning",
+      "html_url": "https://github.com/adityaanilraut/Chess-engine",
+      "language": "Python",
+      "pushed_at": "2025-01-15T22:16:45Z",
+      "stargazers_count": 1,
+      "topics": []
+    },
+    {
+      "name": "tictactoe",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/tictactoe",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2025-01-13T21:37:35Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "finetuning-model-Bert",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/finetuning-model-Bert",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2024-12-12T22:46:20Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "Llama3.2-Quantized-Model",
+      "description": "Llama-3.2 1B 4-bit Quantized Model",
+      "html_url": "https://github.com/adityaanilraut/Llama3.2-Quantized-Model",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2024-12-09T22:29:33Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "games",
+      "description": "fun games",
+      "html_url": "https://github.com/adityaanilraut/games",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2024-11-18T03:11:33Z",
+      "stargazers_count": 0,
+      "topics": []
+    },
+    {
+      "name": "snake-game",
+      "description": null,
+      "html_url": "https://github.com/adityaanilraut/snake-game",
+      "language": "Jupyter Notebook",
+      "pushed_at": "2020-09-06T18:07:12Z",
+      "stargazers_count": 0,
+      "topics": []
+    }
+  ]
+}

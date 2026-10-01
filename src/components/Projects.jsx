@@ -1,290 +1,534 @@
-import React, { useState, useEffect } from 'react';
-import { fetchGitHubRepos } from '../utils/githubApi';
+import React, { useEffect, useMemo, useState } from "react";
+import { Arrow, ExternalLink, SectionHeading } from "../App";
+import { projects, additionalWork, profile } from "../data/portfolio";
+import { fetchGitHubRepos, repoSnapshot } from "../utils/githubApi";
+const github = (repo) => `${profile.github}/${repo}`;
+const categories = ["All work", "AI agents", "ML infrastructure", "Products"];
 
-const Projects = () => {
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('featured'); // 'featured' or 'all'
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState('All');
-  const [visibleCount, setVisibleCount] = useState(9);
-
-  const featuredProjects = [
-    {
-      title: 'CoderAI: Multi-Agent Code Intelligence CLI',
-      subtitle: 'Agentic developer workstation in the terminal',
-      link: 'https://github.com/adityaanilraut/CoderAI',
-      highlights: [
-        'Built a multi-agent engineering assistant (planner, coder, reviewer agents) for repository analysis, code generation, debugging, and iterative repair.',
-        'Enabled sandboxed code execution and tool calling via the Model Context Protocol (MCP) with dynamic multi-LLM orchestration.'
-      ],
-      tech: 'Python · MCP · Multi-Agent Systems · LLMs'
-    },
-    {
-      title: 'TurboQuant - KV Cache Quantization',
-      subtitle: 'KV Cache Quantization for LLM Inference',
-      link: 'https://github.com/adityaanilraut/TurboQuant-KV-Cache-Quantization',
-      highlights: [
-        'Implemented FP16→INT4 KV-cache quantization in PyTorch, reducing inference memory by ~4× and enabling longer context windows.',
-        'Benchmarked throughput, latency, GPU memory, and accuracy across quantization strategies.'
-      ],
-      tech: 'Python · PyTorch · CUDA · Quantization'
-    },
-    {
-      title: 'AI Context Router',
-      subtitle: 'Cost-aware multi-LLM routing platform',
-      link: 'https://github.com/adityaanilraut/AI-Model-Context-Routing',
-      highlights: [
-        'Built an intelligent routing platform that dynamically selects LLM providers by reasoning complexity, latency, token usage, and cost.',
-        'Developed async FastAPI services with Dockerized deployment and health monitoring; reduced API costs by up to 20%.'
-      ],
-      tech: 'FastAPI · Python · Docker · LLMs'
-    },
-    {
-      title: 'Semantic Search Engine - RAG Pipeline',
-      subtitle: 'Retrieval augmented insight generator',
-      link: 'https://github.com/adityaanilraut/llm-embedding-pipeline',
-      highlights: [
-        'Developed an end-to-end RAG pipeline with document ingestion, embedding generation, metadata filtering, reranking, and FastAPI inference.',
-        'Built scalable FAISS indexes, improving Top-3 retrieval precision over baseline vector search.'
-      ],
-      tech: 'Python · FAISS · Sentence Transformers · FastAPI · RAG'
-    },
-    {
-      title: 'Rust vs. C++ Performance Benchmarks',
-      subtitle: 'CPU and GPU comparative performance research',
-      link: 'https://github.com/adityaanilraut/Rust-vs-Cpp-for-CPU-and-GPU-Performance',
-      highlights: [
-        'Conducted comparative performance research on Rust vs. C++ for CPU and GPU workloads, benchmarking execution speed, memory usage, and parallel throughput.',
-        'Designed GPU-accelerated benchmarks analyzing low-level trade-offs and safety-versus-speed characteristics.'
-      ],
-      tech: 'Rust · C++ · CUDA · Benchmarking'
-    }
-  ];
-
-  useEffect(() => {
-    const loadRepos = async () => {
-      const data = await fetchGitHubRepos();
-      setRepos(data);
-      setLoading(false);
-    };
-    loadRepos();
-  }, []);
-
-  // Filter repositories based on search and language selected
-  const filteredRepos = repos.filter((repo) => {
-    const matchesSearch = repo.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          (repo.description && repo.description.toLowerCase().includes(searchQuery.toLowerCase()));
-    const matchesLanguage = selectedLanguage === 'All' || repo.language === selectedLanguage;
-    return matchesSearch && matchesLanguage;
-  });
-
-  // Extract unique languages from repositories list for filters
-  const languagesList = ['All', ...new Set(repos.map((repo) => repo.language).filter(Boolean))];
-
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 9);
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-    setVisibleCount(9); // reset pagination on search
-  };
-
-  const handleLanguageChange = (lang) => {
-    setSelectedLanguage(lang);
-    setVisibleCount(9); // reset pagination on language filter
-  };
-
+function CaseStudy({ project }) {
   return (
-    <section id="projects" className="section">
-      <div className="container">
-        <h2 className="section-title">Projects Hub</h2>
-
-        <div className="hub-controls">
-          {/* Tabs header */}
-          <div className="hub-tabs">
-            <button 
-              className={`hub-tab-btn ${activeTab === 'featured' ? 'active' : ''}`}
-              onClick={() => setActiveTab('featured')}
+    <details className="case-study">
+      <summary>
+        Engineering notes <span>+</span>
+      </summary>
+      <div className="case-study-content">
+        <div>
+          <h4>The problem</h4>
+          <p>{project.challenge}</p>
+        </div>
+        <div>
+          <h4>What I built</h4>
+          <p>{project.approach}</p>
+        </div>
+        <div>
+          <h4>Evidence & scope</h4>
+          <p>{project.evidence}</p>
+        </div>
+        <ExternalLink className="text-link" href={project.source}>
+          {project.sourceLabel} <Arrow diagonal />
+        </ExternalLink>
+      </div>
+    </details>
+  );
+}
+function ProjectVisual({ type }) {
+  return (
+    <div className={`project-visual visual-${type}`} aria-hidden="true">
+      {type === "pipeline" && (
+        <>
+          <span className="visual-caption">INCREMENTAL BY DESIGN</span>
+          <div className="mini-pipeline">
+            <span>ingest</span>
+            <i>→</i>
+            <span>embed</span>
+            <i>→</i>
+            <span className="mini-highlight">retrieve</span>
+          </div>
+          <span className="visual-footer">HASH → CHUNK → INDEX</span>
+        </>
+      )}
+      {type === "quant" && (
+        <>
+          <span className="visual-caption">QUALITY × MEMORY × OVERHEAD</span>
+          <div className="quant-grid">
+            <div>
+              {Array.from({ length: 16 }, (_, i) => (
+                <i key={i} />
+              ))}
+              <small>FP16</small>
+            </div>
+            <b>→</b>
+            <div className="compressed">
+              {Array.from({ length: 4 }, (_, i) => (
+                <i key={i} />
+              ))}
+              <small>LOW-BIT</small>
+            </div>
+          </div>
+          <span className="visual-footer">
+            ANALYTICAL STORAGE · SIMULATED DECODE
+          </span>
+        </>
+      )}
+      {type === "bench" && (
+        <>
+          <span className="visual-caption">
+            EVALUATION DIMENSIONS · ILLUSTRATION
+          </span>
+          <div className="bench-chart">
+            <div>
+              <span>latency</span>
+              <i style={{ width: "78%" }} />
+            </div>
+            <div>
+              <span>tokens</span>
+              <i style={{ width: "58%" }} />
+            </div>
+            <div>
+              <span>cost</span>
+              <i style={{ width: "35%" }} />
+            </div>
+          </div>
+          <span className="visual-footer">
+            TASKS + TELEMETRY + VERIFICATION
+          </span>
+        </>
+      )}
+      {type === "router" && (
+        <>
+          <span className="visual-caption">THE RIGHT MODEL FOR THE TASK</span>
+          <div className="mini-routing">
+            <span>query</span>
+            <i>→</i>
+            <strong>analyze & route</strong>
+            <div>
+              <span>reasoning</span>
+              <span>coding</span>
+              <span>creative</span>
+            </div>
+          </div>
+        </>
+      )}
+      {type === "audio" && (
+        <>
+          <span className="visual-caption">
+            FROM THE PAGE TO YOUR HEADPHONES
+          </span>
+          <div className="audio-wave">
+            <span className="audio-doc">PDF</span>
+            <span>→</span>
+            <div>
+              {[
+                12, 25, 39, 22, 48, 61, 43, 26, 51, 33, 18, 37, 58, 42, 24, 12,
+              ].map((height, i) => (
+                <i key={i} style={{ height }} />
+              ))}
+            </div>
+          </div>
+          <span className="visual-footer">OCR → CHAPTERS → SPEECH</span>
+        </>
+      )}
+      {type === "satellite" && (
+        <>
+          <span className="visual-caption">
+            EVALUATE THE SIGNAL, NOT THE SHORTCUT
+          </span>
+          <div className="field-map">
+            {Array.from({ length: 12 }, (_, i) => (
+              <i key={i} className={`field-${i % 4}`} />
+            ))}
+            <span>
+              0.888<small>MACRO F1 · GROUPED CV</small>
+            </span>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+function Flagship({ project }) {
+  return (
+    <article className="flagship">
+      <div className="flagship-copy">
+        <p className="eyebrow">
+          <span className="status-dot" /> {project.type}{" "}
+          <span className="flagship-year">2026</span>
+        </p>
+        <h3>
+          {project.name}
+          <span>↗</span>
+        </h3>
+        <p className="flagship-title">{project.title}</p>
+        <p className="flagship-description">{project.description}</p>
+        <div className="tags">
+          {project.stack.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+        <div className="flagship-actions">
+          <ExternalLink
+            className="button button-light"
+            href={github(project.repo)}
+          >
+            Explore repository <Arrow diagonal />
+          </ExternalLink>
+          <ExternalLink
+            className="text-link"
+            href="https://github.com/adityaanilraut/CoderAI/blob/main/docs/architecture.md"
+          >
+            Architecture <Arrow diagonal />
+          </ExternalLink>
+        </div>
+      </div>
+      <div className="flagship-preview">
+        <div className="terminal">
+          <div className="terminal-top">
+            <span className="terminal-dots">
+              <i />
+              <i />
+              <i />
+            </span>
+            <span>coderai / engineering workflow</span>
+            <span>⌘</span>
+          </div>
+          <div className="terminal-body">
+            <p>
+              <span className="terminal-prompt">❯</span> coderai{" "}
+              <span className="terminal-comment">
+                # from intent to verified change
+              </span>
+            </p>
+            <p className="terminal-comment">A look inside the agent runtime</p>
+            <div className="terminal-step">
+              <span>01</span>
+              <div>
+                <strong>Inspect the repository</strong>
+                <small>Search, read, and build context.</small>
+              </div>
+              <b>↗</b>
+            </div>
+            <div className="terminal-step">
+              <span>02</span>
+              <div>
+                <strong>Plan & delegate</strong>
+                <small>Coordinate bounded agent tasks.</small>
+              </div>
+              <b>↗</b>
+            </div>
+            <div className="terminal-step">
+              <span>03</span>
+              <div>
+                <strong>Edit with precision</strong>
+                <small>Anchored patches. Explicit permissions.</small>
+              </div>
+              <b>↗</b>
+            </div>
+            <div className="terminal-step">
+              <span>04</span>
+              <div>
+                <strong>Verify & checkpoint</strong>
+                <small>Run checks. Inspect diffs. Recover.</small>
+              </div>
+              <b>✓</b>
+            </div>
+            <div className="terminal-bottom">
+              <span className="status-dot" /> TOOLS + CONTEXT + CONTROL{" "}
+              <span>_</span>
+            </div>
+          </div>
+        </div>
+        <div className="flagship-metrics">
+          <div>
+            <strong>50</strong>
+            <span>PRs in evaluation</span>
+          </div>
+          <div>
+            <strong>
+              58.2<span>%</span>
+            </strong>
+            <span>reported precision</span>
+          </div>
+          <div>
+            <strong>
+              6.63<span>s</span>
+            </strong>
+            <span>avg. review latency</span>
+          </div>
+        </div>
+        <p className="benchmark-note">
+          Project-reported code-review evaluation.{" "}
+          <ExternalLink href={project.source}>
+            Configuration & methodology ↗
+          </ExternalLink>
+        </p>
+      </div>
+      <div className="flagship-notes">
+        <CaseStudy project={project} />
+      </div>
+    </article>
+  );
+}
+function RepoDirectory() {
+  const [repos, setRepos] = useState(repoSnapshot.repos);
+  const [source, setSource] = useState("snapshot");
+  const [query, setQuery] = useState("");
+  const [language, setLanguage] = useState("All languages");
+  const [limit, setLimit] = useState(6);
+  useEffect(() => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8000);
+    fetchGitHubRepos(controller.signal)
+      .then((data) => {
+        setRepos(data);
+        setSource("live");
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setSource("snapshot");
+      })
+      .finally(() => clearTimeout(timer));
+    return () => {
+      controller.abort();
+      clearTimeout(timer);
+    };
+  }, []);
+  const languages = useMemo(
+    () =>
+      [...new Set(repos.map((repo) => repo.language).filter(Boolean))].sort(),
+    [repos],
+  );
+  const filtered = repos.filter(
+    (repo) =>
+      `${repo.name} ${repo.description || ""}`
+        .toLowerCase()
+        .includes(query.toLowerCase().trim()) &&
+      (language === "All languages" || repo.language === language),
+  );
+  const syncedDate = new Date(repoSnapshot.syncedAt).toLocaleDateString(
+    "en-US",
+    {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "America/Los_Angeles",
+    },
+  );
+  return (
+    <details className="repository-directory">
+      <summary>
+        <span>
+          <span className="eyebrow">Keep exploring</span>
+          <strong>
+            Browse all public repositories{" "}
+            <span className="repo-count">{repos.length}</span>
+          </strong>
+        </span>
+        <span className="directory-toggle">+</span>
+      </summary>
+      <div className="directory-content">
+        <div className="repo-toolbar">
+          <label>
+            <span>Search repositories</span>
+            <input
+              type="search"
+              placeholder="Search by name or description…"
+              value={query}
+              onChange={(event) => {
+                setQuery(event.target.value);
+                setLimit(6);
+              }}
+            />
+          </label>
+          <label>
+            <span>Filter by language</span>
+            <select
+              value={language}
+              onChange={(event) => {
+                setLanguage(event.target.value);
+                setLimit(6);
+              }}
             >
-              Featured Work
-            </button>
-            <button 
-              className={`hub-tab-btn ${activeTab === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveTab('all')}
+              <option>All languages</option>
+              {languages.map((item) => (
+                <option key={item}>{item}</option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div className="repo-status">
+          <span role="status">
+            {filtered.length}{" "}
+            {filtered.length === 1 ? "repository" : "repositories"}
+            {query || language !== "All languages" ? " found" : ""}
+          </span>
+          <span>
+            {source === "live"
+              ? "Updated from GitHub"
+              : `Saved GitHub snapshot · ${syncedDate}`}
+          </span>
+        </div>
+        <div className="repo-grid">
+          {filtered.slice(0, limit).map((repo) => (
+            <article key={repo.name} className="repo-card">
+              <ExternalLink href={repo.html_url} className="repo-title">
+                {repo.name.replaceAll("-", " ")} <Arrow diagonal />
+              </ExternalLink>
+              <p>
+                {repo.description ||
+                  "Explore the source, documentation, and recent development on GitHub."}
+              </p>
+              <div className="repo-card-meta">
+                <span>
+                  <i />
+                  {repo.language || "Source & documentation"}
+                </span>
+                <span>
+                  Updated{" "}
+                  {new Date(repo.pushed_at).toLocaleDateString("en-US", {
+                    month: "short",
+                    year: "numeric",
+                    timeZone: "America/Los_Angeles",
+                  })}
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+        {filtered.length === 0 && (
+          <div className="repo-empty">
+            <h4>No matching repositories.</h4>
+            <p>Try another search or language.</p>
+            <button
+              className="text-button"
+              onClick={() => {
+                setQuery("");
+                setLanguage("All languages");
+              }}
             >
-              All Repositories
-              <span className="hub-tab-count">{repos.length}</span>
+              Clear filters <Arrow />
             </button>
           </div>
-
-          {/* Search and Filter row */}
-          {activeTab === 'all' && (
-            <div className="search-filter-row">
-              <div className="search-input-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input 
-                  type="text" 
-                  className="search-input" 
-                  placeholder="Search public repositories..." 
-                  value={searchQuery}
-                  onChange={handleSearchChange}
-                />
-              </div>
-
-              <div className="language-pills">
-                {languagesList.map((lang) => (
-                  <button
-                    key={lang}
-                    className={`lang-pill ${selectedLanguage === lang ? 'active' : ''}`}
-                    onClick={() => handleLanguageChange(lang)}
+        )}
+        {filtered.length > limit && (
+          <button
+            className="button button-outline load-more"
+            onClick={() => setLimit((value) => value + 9)}
+          >
+            Show more repositories <span>({filtered.length - limit} more)</span>{" "}
+            <Arrow />
+          </button>
+        )}
+        <ExternalLink
+          className="directory-github text-link"
+          href={profile.github + "?tab=repositories"}
+        >
+          View the full directory on GitHub <Arrow diagonal />
+        </ExternalLink>
+      </div>
+    </details>
+  );
+}
+export default function Projects() {
+  const [category, setCategory] = useState("All work");
+  const featured = projects[0];
+  const filtered = projects
+    .slice(1)
+    .filter(
+      (project) => category === "All work" || project.category === category,
+    );
+  const showFlagship = category === "All work" || category === "AI agents";
+  return (
+    <section id="projects" className="section projects-section container">
+      <SectionHeading
+        number="01"
+        label="Selected work"
+        title="Ideas, engineered into reality."
+      >
+        Open-source systems, applied AI, and experiments with clear questions
+        and inspectable answers.
+      </SectionHeading>
+      <div
+        className="project-filters"
+        role="group"
+        aria-label="Filter selected projects"
+      >
+        {categories.map((item) => (
+          <button
+            key={item}
+            aria-pressed={category === item}
+            className={category === item ? "active" : ""}
+            onClick={() => setCategory(item)}
+          >
+            {item}
+            {category === item && <span>↗</span>}
+          </button>
+        ))}
+        <span className="project-result-count" role="status">
+          {filtered.length + (showFlagship ? 1 : 0)} projects
+        </span>
+      </div>
+      <div>
+        {showFlagship && <Flagship project={featured} />}
+        <div className="project-grid">
+          {filtered.map((project) => (
+            <article key={project.repo} className="project-card">
+              <ProjectVisual type={project.visual} />
+              <div className="project-card-body">
+                <div className="project-card-top">
+                  <span className="eyebrow">{project.type}</span>
+                  <ExternalLink
+                    className="project-code-link"
+                    href={github(project.repo)}
+                    aria-label={`View ${project.name} on GitHub`}
                   >
-                    {lang}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Tab Content: Featured Projects */}
-        {activeTab === 'featured' && (
-          <div className="featured-grid">
-            {featuredProjects.map((project) => (
-              <div key={project.title} className="card featured-card">
-                <div className="featured-card-header">
-                  <div>
-                    <h3 className="featured-card-title">{project.title}</h3>
-                    <p className="featured-card-subtitle">{project.subtitle}</p>
-                  </div>
-                  {project.link && (
-                    <a 
-                      href={project.link} 
-                      className="repo-github-link" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      Code
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      </svg>
-                    </a>
-                  )}
+                    <Arrow diagonal />
+                  </ExternalLink>
                 </div>
-
-                <ul className="featured-card-bullets">
-                  {project.highlights.map((bullet, idx) => (
-                    <li key={idx} className="featured-card-bullet-item">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                      </svg>
-                      {bullet}
-                    </li>
+                <h3>
+                  <ExternalLink href={github(project.repo)}>
+                    {project.name}
+                  </ExternalLink>
+                </h3>
+                <p className="project-description">{project.description}</p>
+                <div className="tags">
+                  {project.stack.map((tag) => (
+                    <span key={tag}>{tag}</span>
                   ))}
-                </ul>
-
-                <div className="featured-card-footer">
-                  <span className="featured-card-tech">{project.tech}</span>
                 </div>
+                <CaseStudy project={project} />
               </div>
+            </article>
+          ))}
+        </div>
+      </div>
+      {category === "All work" && (
+        <div className="more-work">
+          <div className="more-work-heading">
+            <h3>Always building. Always learning.</h3>
+            <p>A few more corners of my GitHub.</p>
+          </div>
+          <div className="more-work-grid">
+            {additionalWork.map((project) => (
+              <article key={project.repo}>
+                <ExternalLink href={github(project.repo)}>
+                  <h4>{project.name}</h4>
+                  <Arrow diagonal />
+                </ExternalLink>
+                <p>{project.text}</p>
+                <span>{project.tags}</span>
+                {project.secondaryRepo && (
+                  <ExternalLink
+                    className="secondary-project"
+                    href={github(project.secondaryRepo)}
+                  >
+                    RoomieQueue ↗
+                  </ExternalLink>
+                )}
+              </article>
             ))}
           </div>
-        )}
-
-        {/* Tab Content: All Repositories */}
-        {activeTab === 'all' && (
-          <>
-            {loading ? (
-              <div style={{ textAlign: 'center', padding: '4rem' }}>
-                <p style={{ color: 'var(--text-secondary)' }}>Loading GitHub repositories...</p>
-              </div>
-            ) : (
-              <div className="repos-grid">
-                {filteredRepos.length > 0 ? (
-                  filteredRepos.slice(0, visibleCount).map((repo) => (
-                    <div key={repo.id} className="card repo-card">
-                      <div className="repo-card-header">
-                        <h3 className="repo-card-title">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                          </svg>
-                          {repo.name}
-                        </h3>
-                        {repo.language && (
-                          <span className="repo-card-lang">{repo.language}</span>
-                        )}
-                      </div>
-
-                      <p className="repo-card-desc">
-                        {repo.description || 'No description provided.'}
-                      </p>
-
-                      <div className="repo-card-footer">
-                        <div className="repo-card-stats">
-                          <span className="repo-card-stat-item" title="Stars">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                            </svg>
-                            {repo.stargazers_count}
-                          </span>
-                          <span className="repo-card-stat-item" title="Forks">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                              <circle cx="18" cy="18" r="3"></circle>
-                              <circle cx="6" cy="6" r="3"></circle>
-                              <circle cx="6" cy="18" r="3"></circle>
-                              <path d="M18 15V9a4 4 0 0 0-4-4H9"></path>
-                              <line x1="6" y1="9" x2="6" y2="15"></line>
-                            </svg>
-                            {repo.forks_count}
-                          </span>
-                        </div>
-
-                        <a 
-                          href={repo.html_url} 
-                          className="repo-github-link" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          GitHub
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <div className="hub-empty-state">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="11" cy="11" r="8"></circle>
-                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <h4>No repositories found</h4>
-                    <p>Try modifying your search query or language filter.</p>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {filteredRepos.length > visibleCount && (
-              <div className="hub-load-more">
-                <button className="btn btn-secondary" onClick={handleLoadMore}>
-                  Load More Repositories
-                </button>
-              </div>
-            )}
-          </>
-        )}
-      </div>
+        </div>
+      )}
+      <RepoDirectory />
     </section>
   );
-};
-
-export default Projects;
+}
