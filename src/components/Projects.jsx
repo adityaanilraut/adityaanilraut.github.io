@@ -109,6 +109,17 @@ function ProjectVisual({ type }) {
           </div>
         </>
       )}
+      {type === "gpu" && (
+        <>
+          <span className="visual-caption">SHARED GPU SCHEDULING</span>
+          <div className="mini-pipeline">
+            <span>A100</span>
+            <i>→</i>
+            <span className="mini-highlight">7 MIG instances</span>
+          </div>
+          <span className="visual-footer">FAIR SHARE · PER-USER QUOTAS</span>
+        </>
+      )}
       {type === "audio" && (
         <>
           <span className="visual-caption">
@@ -443,8 +454,7 @@ export default function Projects() {
         label="Selected work"
         title="Ideas, engineered into reality."
       >
-        Open-source systems, applied AI, and experiments with clear questions
-        and inspectable answers.
+        Open-source systems, applied AI, and infrastructure projects.
       </SectionHeading>
       <div
         className="project-filters"
@@ -470,23 +480,29 @@ export default function Projects() {
         {showFlagship && <Flagship project={featured} />}
         <div className="project-grid">
           {filtered.map((project) => (
-            <article key={project.repo} className="project-card">
+            <article key={project.name} className="project-card">
               <ProjectVisual type={project.visual} />
               <div className="project-card-body">
                 <div className="project-card-top">
                   <span className="eyebrow">{project.type}</span>
-                  <ExternalLink
-                    className="project-code-link"
-                    href={github(project.repo)}
-                    aria-label={`View ${project.name} on GitHub`}
-                  >
-                    <Arrow diagonal />
-                  </ExternalLink>
+                  {project.repo && (
+                    <ExternalLink
+                      className="project-code-link"
+                      href={github(project.repo)}
+                      aria-label={`View ${project.name} on GitHub`}
+                    >
+                      <Arrow diagonal />
+                    </ExternalLink>
+                  )}
                 </div>
                 <h3>
-                  <ExternalLink href={github(project.repo)}>
-                    {project.name}
-                  </ExternalLink>
+                  {project.repo ? (
+                    <ExternalLink href={github(project.repo)}>
+                      {project.name}
+                    </ExternalLink>
+                  ) : (
+                    project.name
+                  )}
                 </h3>
                 <p className="project-description">{project.description}</p>
                 <div className="tags">

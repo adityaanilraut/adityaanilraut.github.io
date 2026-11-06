@@ -22,9 +22,9 @@ export default function About() {
         </div>
         <div className="about-copy">
           <p>
-            I’ve worked on the unglamorous, essential parts of software:
-            transaction services, database performance, migration pipelines, and
-            repeatable deployments. That experience shapes how I approach AI
+            At TCS, I worked on real-time financial data, migrated a monitoring
+            backend from Node.js to Go, and built background jobs that could
+            recover from failures. That experience shapes how I approach AI
             systems today.
           </p>
           <p>
@@ -36,8 +36,8 @@ export default function About() {
           <p>
             I completed my M.S. in Computer Science at California State
             University, Chico in May 2026. My recent independent work spans
-            agent runtimes, vector infrastructure, LLM post-training, and
-            CPU/GPU performance research.
+            agent runtimes, GPU scheduling, vector infrastructure, and LLM
+            post-training.
           </p>
           <ExternalLink className="text-link" href={profile.github}>
             Follow what I’m building <Arrow diagonal />

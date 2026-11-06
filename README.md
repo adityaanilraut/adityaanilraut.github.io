@@ -2,7 +2,7 @@
 
 Portfolio: **https://adityaanilraut.github.io/**
 
-A React + Vite portfolio focused on backend engineering, AI systems, and inspectable project evidence. Professional experience comes from the supplied September 2026 résumé; project descriptions were checked against current public repository documentation.
+A React + Vite portfolio focused on backend engineering and AI systems. The supplied résumé supports the professional experience and GPUShare write-up. Public repositories provide supporting material for open-source projects.
 
 ## Develop
 
@@ -37,7 +37,7 @@ The weekly run refreshes the build's repository snapshot; it does not overwrite 
 
 ## Content integrity
 
-Professional metrics are résumé-reported. CoderAI's precision and review latency are labeled as project-reported results for the linked 50-PR evaluation configuration. CodeAgentBench's 10-task sample mixes five SWE-bench Verified and five local tasks. TurboQuant reports analytical cache storage and simulation-path overhead, not measured production compressed-cache savings. No new employment, awards, global rankings, or unverified production claims were added.
+Professional metrics are résumé-reported. CoderAI's benchmark results describe the configuration in the linked 50-PR project report. CodeAgentBench's 10-task sample mixes five SWE-bench Verified and five local tasks. TurboQuant reports analytical cache storage and simulation-path overhead.
 
 The root PDF aliases match the current résumé for compatibility. `resume.tex`, `code.html`, and ASCII art are legacy source/reference artifacts and do not drive the current site. The supplied PDF is the authoritative download.
 

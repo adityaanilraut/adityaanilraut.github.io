@@ -85,9 +85,8 @@ export default function Hero() {
             <span>Useful AI.</span>
           </h1>
           <p className="hero-description">
-            I’m Aditya, a software engineer turning complex problems into
-            dependable software—from distributed backend services to agents that
-            build and verify code.
+            I’m Aditya, a software engineer building distributed backend
+            services in Go and TypeScript and AI tools in Python.
           </p>
           <div className="hero-actions">
             <a className="button" href="#projects">
@@ -124,21 +123,21 @@ export default function Hero() {
         </div>
         <div>
           <strong>
-            2M<span>+</span>
+            40<span>%</span>
           </strong>
-          <p>monthly financial transactions</p>
+          <p>lower memory use after migrating to Go</p>
         </div>
         <div>
           <strong>
-            30<span>%</span>
+            3<span>×</span>
           </strong>
-          <p>reduction in API latency</p>
+          <p>concurrent connection capacity</p>
         </div>
         <div>
           <strong>
-            50M<span>+</span>
+            35<span>%</span>
           </strong>
-          <p>records migrated without downtime</p>
+          <p>lower p95 API latency</p>
         </div>
       </div>
     </section>

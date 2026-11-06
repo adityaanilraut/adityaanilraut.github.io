@@ -22,7 +22,7 @@ export const projects = [
     approach:
       "Built a session runtime with snippet-anchored editing, context compaction, scoped tool permissions, turn checkpoints, and background agent teams. Integrated MCP, ACP, and a Python SDK.",
     evidence:
-      "Published runtime architecture, verification contracts, and a code-review evaluation report covering 50 pull requests. The report records 58.2% precision and 6.63s average review latency for the evaluated configuration.",
+      "In the project’s 50-pull-request Martian benchmark report, the evaluated configuration placed fifth by F1, with 58.2% precision, 50.8% F1, and 6.63 seconds per review on average.",
     source:
       "https://github.com/adityaanilraut/CoderAI/blob/main/docs/benchmarks.md",
     sourceLabel: "Read the evaluation report",
@@ -98,10 +98,27 @@ export const projects = [
     approach:
       "Separated query analysis, model selection, and provider connectors. Added asynchronous API endpoints, fallback handling, health checks, and an analysis mode that runs without API keys.",
     evidence:
-      "Documented REST endpoints, Docker deployment, routing configuration, and a web interface for inspecting model-selection decisions.",
+      "The résumé reports a 15% inference cost reduction in testing. The repository documents the routing configuration, REST API, Docker deployment, and dashboard.",
     source:
       "https://github.com/adityaanilraut/AI-Model-Context-Routing/blob/main/README.md",
     sourceLabel: "Inspect the architecture",
+  },
+  {
+    name: "GPUShare",
+    category: "ML infrastructure",
+    type: "GPU scheduling",
+    visual: "gpu",
+    description:
+      "A Python scheduler that lets students run containerized workloads concurrently on a shared NVIDIA A100 80 GB GPU.",
+    stack: ["Python", "Docker", "NVIDIA MIG"],
+    challenge:
+      "Concurrent student jobs need isolation and fair access to limited GPU capacity.",
+    approach:
+      "Partitioned the A100 into up to seven isolated MIG instances and scheduled jobs with fair-share allocation and per-user GPU quotas.",
+    evidence:
+      "The résumé describes a scheduler built for 30 students, with quotas to prevent individual workloads from monopolizing the GPU.",
+    source: profile.resume,
+    sourceLabel: "Read the résumé project summary",
   },
   {
     name: "VoxLibri",
@@ -174,33 +191,33 @@ export const experience = [
   {
     company: "Tata Consultancy Services",
     short: "TCS",
-    role: "Full Stack Systems Engineer",
+    role: "Software Engineer",
     context: "Client: GE · Remote / Hybrid",
     dates: "Apr 2021 — Oct 2023",
     summary:
-      "Built backend services and modernized enterprise systems supporting financial operations.",
+      "Built and operated backend services for real-time financial monitoring at GE.",
     bullets: [
-      "Developed Java Spring Boot microservices and REST APIs supporting onboarding, account management, and 2M+ financial transactions per month.",
-      "Moved transaction processing, audit logging, and notifications to Kafka-based services, reducing inter-service processing time by 40%.",
-      "Reduced API latency by 30% through query tuning, indexing, Redis caching, and JVM optimization; increased throughput by 25%.",
-      "Built migration pipelines for 50M+ records with verified integrity and zero production downtime; automated releases with Docker, Kubernetes, Terraform, and CI/CD.",
+      "Built REST APIs and microservices with Node.js, Express, and TypeScript. Led the migration of a real-time monitoring backend to Go, reducing memory usage by 40% and tripling concurrent connection capacity.",
+      "Used goroutines, channels, and worker pools to deliver real-time financial data to dashboards during peak load.",
+      "Reduced p95 API latency by 35% with Redis caching, SQL query and index tuning, and removal of N+1 queries.",
+      "Processed millions of records with retries, idempotent handlers, and dead-letter queues. Supported production with automated tests, CI/CD, monitoring, and on-call response.",
     ],
-    stack: ["Java", "Spring Boot", "Kafka", "AWS", "Redis", "Kubernetes"],
+    stack: ["Go", "Node.js", "TypeScript", "Redis", "SQL", "Docker"],
   },
   {
     company: "Launchpad Technology",
     short: "LT",
-    role: "Software Engineer",
+    role: "Backend Software Engineer",
     context: "Mumbai, India",
     dates: "May 2020 — Apr 2021",
     summary:
-      "Built full-stack features and backend APIs serving 270 educational institutions.",
+      "Built and operated backend APIs for data management, authentication, and business operations.",
     bullets: [
-      "Shipped React, Node.js, and MongoDB features with RESTful APIs in collaboration with cross-functional teams.",
-      "Implemented JWT authentication, asynchronous tasks, reusable service components, centralized exceptions, and structured logging.",
-      "Optimized PostgreSQL / MySQL indexing and connection pooling to reduce average API response latency by 25%.",
+      "Built and maintained 10+ API endpoints with request validation, error handling, and reusable service components.",
+      "Deployed and maintained backend applications on AWS using EC2, S3, and Linux.",
+      "Designed relational schemas, improved query performance with indexing and pagination, and added unit and integration tests for API endpoints.",
     ],
-    stack: ["React", "Node.js", "MongoDB", "PostgreSQL", "Bash"],
+    stack: ["REST APIs", "SQL", "AWS EC2", "Amazon S3", "Linux"],
   },
 ];
 
@@ -209,9 +226,10 @@ export const skills = [
     title: "Backend & distributed systems",
     text: "Services that stay responsive as workloads grow.",
     items: [
-      "Java / Spring Boot",
+      "Go / Gin",
+      "Node.js / TypeScript",
       "Python / FastAPI",
-      "Go",
+      "Java / Spring Boot",
       "Kafka",
       "REST APIs",
       "PostgreSQL",
@@ -240,7 +258,7 @@ export const skills = [
       "Terraform / Helm",
       "GitHub Actions",
       "React / TypeScript",
-      "Node.js",
+      "Prometheus / Grafana",
       "SQL / Bash",
     ],
   },
