@@ -78,19 +78,20 @@ export default function Hero() {
       </div>
       <div className="hero-grid">
         <div className="hero-copy">
-          <p className="hero-kicker">BACKEND ENGINEERING · AI SYSTEMS</p>
+          <p className="hero-kicker">Welcome to my portfolio</p>
           <h1>
-            Reliable systems.
+            Hi, I’m
             <br />
-            <span>Useful AI.</span>
+            <span>{profile.name}.</span>
           </h1>
           <p className="hero-description">
-            I’m Aditya, a software engineer building distributed backend
-            services in Go and TypeScript and AI tools in Python.
+            I’m a software engineer in San Jose. I build backend services and
+            AI tools. Here you can see what I’ve built, read about my experience,
+            and find my résumé.
           </p>
           <div className="hero-actions">
             <a className="button" href="#projects">
-              Explore my work <Arrow />
+              See my projects <Arrow />
             </a>
             <a
               className="text-link"
@@ -116,9 +117,9 @@ export default function Hero() {
         <div className="impact-intro">
           <span className="tiny-label">PRODUCTION EXPERIENCE</span>
           <p>
-            Engineering with
+            A few results from
             <br />
-            <strong>real-world impact.</strong>
+            <strong>my work at TCS.</strong>
           </p>
         </div>
         <div>

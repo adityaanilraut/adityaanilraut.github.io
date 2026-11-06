@@ -6,38 +6,30 @@ export default function About() {
     <section id="about" className="section about-section container">
       <SectionHeading
         number="03"
-        label="A little context"
-        title="An engineer who connects the dots."
+        label="About"
+        title="A bit about me"
       />
       <div className="about-layout">
         <div className="about-statement">
-          Backend depth.
-          <br />
-          AI curiosity.
-          <br />
-          <span>Product mindset.</span>
+          I enjoy making complex software <span>easier to use.</span>
           <div className="about-signature">
             Aditya Raut <span>↗</span>
           </div>
         </div>
         <div className="about-copy">
           <p>
-            At TCS, I worked on real-time financial data, migrated a monitoring
-            backend from Node.js to Go, and built background jobs that could
-            recover from failures. That experience shapes how I approach AI
-            systems today.
+            Working on financial systems at TCS taught me to think about what
+            happens when software gets busy or something fails. I bring that
+            same approach to the AI tools I build today.
           </p>
           <p>
-            A useful agent needs reliable tools and clear execution boundaries.
-            A retrieval system needs fresh data and meaningful evaluation. A
-            benchmark needs to explain what it actually measures. Those are the
-            details I enjoy getting right.
+            I like building tools I’d want to use myself. One example is
+            CoderAI, a terminal tool that helps review code and test changes.
           </p>
           <p>
             I completed my M.S. in Computer Science at California State
-            University, Chico in May 2026. My recent independent work spans
-            agent runtimes, GPU scheduling, vector infrastructure, and LLM
-            post-training.
+            University, Chico in May 2026. I keep learning by building projects
+            in AI and infrastructure.
           </p>
           <ExternalLink className="text-link" href={profile.github}>
             Follow what I’m building <Arrow diagonal />

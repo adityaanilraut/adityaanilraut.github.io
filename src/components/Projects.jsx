@@ -452,9 +452,9 @@ export default function Projects() {
       <SectionHeading
         number="01"
         label="Selected work"
-        title="Ideas, engineered into reality."
+        title="Projects I’ve built"
       >
-        Open-source systems, applied AI, and infrastructure projects.
+        Explore my open-source projects and experiments in AI and infrastructure.
       </SectionHeading>
       <div
         className="project-filters"
@@ -519,8 +519,8 @@ export default function Projects() {
       {category === "All work" && (
         <div className="more-work">
           <div className="more-work-heading">
-            <h3>Always building. Always learning.</h3>
-            <p>A few more corners of my GitHub.</p>
+            <h3>More projects</h3>
+            <p>A few more things I’ve built and shared on GitHub.</p>
           </div>
           <div className="more-work-grid">
             {additionalWork.map((project) => (

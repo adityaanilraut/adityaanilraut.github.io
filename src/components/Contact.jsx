@@ -16,17 +16,13 @@ export default function Contact() {
       <div className="container contact-inner">
         <div>
           <p className="eyebrow">
-            <span className="status-dot" /> Let’s build something useful
+            <span className="status-dot" /> Thanks for stopping by
           </p>
           <h2>
-            Your next engineer
-            <br />
-            could be <span>right here.</span>
+            Let’s <span>get in touch.</span>
           </h2>
           <p className="contact-description">
-            Hiring for backend, software engineering, or AI systems roles?
-            <br />
-            I’d love to hear about the problems your team is solving.
+            If you’re hiring or have a project in mind, I’d love to hear from you.
           </p>
           <a
             className="contact-email"

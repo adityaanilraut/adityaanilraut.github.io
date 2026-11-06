@@ -9,7 +9,7 @@ export default function Skills() {
     >
       <div className="skills-heading">
         <p className="eyebrow">The tools behind the work</p>
-        <h2 id="skills-title">Depth where it matters.</h2>
+        <h2 id="skills-title">Technical skills</h2>
       </div>
       <div className="skills-grid">
         {skills.map((group, i) => (

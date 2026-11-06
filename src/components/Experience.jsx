@@ -8,10 +8,10 @@ export default function Experience() {
         <SectionHeading
           number="02"
           label="Experience"
-          title="Built in the real world."
+          title="Where I’ve worked"
         >
-          Enterprise backend experience, followed by a deeper focus on AI
-          infrastructure and independent engineering.
+          I worked on backend systems at Tata Consultancy Services and
+          Launchpad Technology.
         </SectionHeading>
         <div className="experience-list">
           {experience.map((job) => (
@@ -44,7 +44,7 @@ export default function Experience() {
         <div className="education-row">
           <div>
             <p className="eyebrow">Education</p>
-            <h3>A foundation in computer science.</h3>
+            <h3>Where I studied</h3>
           </div>
           <div>
             <span className="education-degree">M.S. Computer Science</span>

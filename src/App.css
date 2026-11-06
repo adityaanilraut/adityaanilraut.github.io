@@ -262,9 +262,9 @@ svg {
   padding: 60px 0 65px;
 }
 .hero-kicker {
-  font: 400 10px var(--mono);
+  font: 500 12px var(--mono);
   color: var(--muted);
-  letter-spacing: 1px;
+  letter-spacing: 0.4px;
   margin-bottom: 22px;
 }
 h1 {
@@ -1940,11 +1940,8 @@ input::placeholder {
     font-size: 49px;
     letter-spacing: -2.7px;
   }
-  .hero-kicker {
-    font-size: 8px;
-  }
   .hero-description {
-    font-size: 12px;
+    font-size: 14px;
   }
   .hero-actions {
     gap: 17px;
@@ -2256,7 +2253,6 @@ input::placeholder {
     padding-block: 38px 34px;
   }
   .hero-kicker {
-    font-size: 8px;
     margin-bottom: 17px;
   }
   .hero h1 {
@@ -2265,7 +2261,7 @@ input::placeholder {
     line-height: 1.13;
   }
   .hero-description {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.9;
     max-width: 480px;
     margin-top: 19px;

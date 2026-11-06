@@ -130,7 +130,7 @@ function App() {
             className={menuOpen ? "nav-links is-open" : "nav-links"}
           >
             {[
-              ["projects", "Work"],
+              ["projects", "Projects"],
               ["experience", "Experience"],
               ["about", "About"],
               ["contact", "Contact"],
